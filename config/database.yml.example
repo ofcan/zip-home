@@ -1,0 +1,25 @@
+# Example file for database.yml
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: user_development
+  pool: 5
+  username: user
+  password: secret
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: user_test
+  pool: 5
+  username: user
+  password: secret
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: user_production
+  pool: 5
+  username: user
+  password: secret
