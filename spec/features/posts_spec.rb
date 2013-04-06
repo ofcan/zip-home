@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "UserFlows" do
+describe "Posts" do
   
   it 'should get to posts index from home page' do
     visit root_path
