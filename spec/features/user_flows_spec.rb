@@ -1,3 +1,6 @@
+# this file has been generated using command
+# rails g integration_test user_flows
+
 require 'spec_helper'
 
 describe "UserFlows" do
