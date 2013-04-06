@@ -38,4 +38,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Making available Devise test helpers like `sign_in(user)`
+  config.include Devise::TestHelpers, :type => :controller
 end
