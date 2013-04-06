@@ -10,6 +10,12 @@ describe User do
   it 'responds to proper methods' do
     user.should respond_to :email
     user.should respond_to :password
+    user.should respond_to :username
+  end
+
+  it 'doesnt create new user if username blank' do
+    user.username = ''
+    user.should_not be_valid
   end
 
 end
