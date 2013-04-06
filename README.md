@@ -2,7 +2,7 @@
 
 This is the home of [ZIP](http://zipzg.com) - the best startup incubator in the world! It is an open source project created by our awesome community! Check it out! :)
 
-### Getting started
+## Getting started
 
 This project is riding Ruby on Rails. To start contributing you should have installed:
 
@@ -12,14 +12,14 @@ This project is riding Ruby on Rails. To start contributing you should have inst
 * [Rubygems](http://rubygems.org/) - for all those precious gems
 * [Rails](http://rubyonrails.org/) - this project is tested using version Rails 3.2.13
 
-### Contributing
+## Contributing
 
 So, you finally realised the awesomeness scope of ZIP and are now ready to contribute. Bless you. Just keep the following in mind:
 
 * Contributions will not be accepted without tests. Please stay in the confines of the current test suite and use Rspec
 * Please follow the Github Ruby Styleguide when modifying Ruby code.
 
-### Test dependencies
+## Test dependencies
 
 To run the test suite you'll need to install dependencies. ZIP-home uses Bundler, so a quick run of the bundle command and you're all set!
 
@@ -29,7 +29,7 @@ Before you start, run the tests and make sure that they pass (to confirm your en
 
     $ rspec
 
-### Workflow
+## Workflow
 
 Here's the most direct way to get your work merged into the project:
 
@@ -42,6 +42,6 @@ Here's the most direct way to get your work merged into the project:
 * Push the branch up ( git push origin my_awesome_feature ).
 * Create a pull request against ofcan/zip-home and describe what your change does and the why you think it should be merged.
 
-### In the end...
+## In the end...
 
 ... hacking on ZIP-home should be fun. If you find any of this hard to figure out, let us know so we can improve our process or documentation! Thanks!

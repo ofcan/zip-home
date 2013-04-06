@@ -6,4 +6,10 @@ FactoryGirl.define do
     sequence(:username) { |n| "user_username_#{n}" }
   end
 
+  factory :post do
+    user
+    sequence(:title) { |n| "post_title_#{n}" }
+    sequence(:body) { |n| "post_body_#{n}" }
+  end
+
 end

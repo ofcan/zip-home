@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe User do
+
   let!(:user) { FactoryGirl.build :user }
 
   it 'creates new user' do
@@ -11,6 +12,7 @@ describe User do
     user.should respond_to :email
     user.should respond_to :password
     user.should respond_to :username
+    user.should respond_to :posts
   end
 
   it 'doesnt create new user if username blank' do

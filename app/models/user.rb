@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  has_many :posts
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -14,4 +17,5 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username
   validates_uniqueness_of :username
+
 end
