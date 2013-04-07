@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   layout 'two_column'
 
   def index
+    @posts = Post.order('created_at desc').all
   end
 
   def show
