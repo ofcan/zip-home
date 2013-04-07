@@ -27,6 +27,21 @@ describe "Posts" do
       current_path.should == new_post_path
     end
 
+    it 'should get to post edit if user admin' do
+      sign_in_as!(admin)
+      visit posts_path
+      click_link "edit_post_#{blog_post.id}"
+      current_path.should == edit_post_path(blog_post)
+    end
+
+    it 'should delete post' do
+      sign_in_as!(admin)
+      visit posts_path
+      expect {
+        click_link "delete_post_#{blog_post.id}"
+      }.to change(Post, :count).by(-1)
+    end
+
   end 
 
   context 'failure' do
