@@ -8,5 +8,14 @@ module ApplicationHelper
                 :space_after_headers => true }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
+
+  def gravatar_picture(user, size)
+    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?d=identicon&size=#{size}"
+  end
+
+  def admins
+    User.all.select { |user| user.admin }
+  end
   
 end

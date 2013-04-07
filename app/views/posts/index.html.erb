@@ -8,4 +8,9 @@
               :id => 'new_post',
               :class => 'btn btn-success' if current_user.try(:admin) %>
   <h3>Authors:</h3>
+  
+  <% admins.each do |admin| %>
+    <%= image_tag(gravatar_picture(admin, 60)) %>
+  <% end %>
+
 <% end %>
