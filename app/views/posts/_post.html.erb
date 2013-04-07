@@ -1,4 +1,4 @@
-<h2><%= link_to post.title, post %></h2>
+<h2><%= link_to post.title, post, :id => "post_#{post.id}" %></h2>
 
 <small>
   by <%= post.user.username %> on <%= time_tag(post.created_at, :format => '%B %d, %Y') %>
