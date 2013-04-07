@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
-  before_filter :assert_admin, :only => [:new, :create, :edit, :destroy]
+  before_filter :assert_admin, :only => [:new, :create, :edit, :update, :destroy]
 
   layout 'two_column'
 
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   end
 
   def assert_admin
-    redirect_to posts_path unless current_user
+    redirect_to posts_path unless current_user.try(:admin)
     flash[:alert] = "You can't do that."
   end
 

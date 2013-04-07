@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Post do
 
-  let!(:post) { FactoryGirl.build :post }
+  let!(:post) { build :post }
 
   it 'creates new post' do
     post.should be_valid

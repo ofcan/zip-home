@@ -41,4 +41,11 @@ RSpec.configure do |config|
 
   # Making available Devise test helpers like `sign_in(user)`
   config.include Devise::TestHelpers, :type => :controller
+
+  # Include my custom helpers in support/authentication_helper.rb
+  config.include AuthenticationHelpers
+
+  # Have access to FG shortened syntax methods like:
+  config.include FactoryGirl::Syntax::Methods
+
 end

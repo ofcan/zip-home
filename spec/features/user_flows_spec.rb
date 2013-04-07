@@ -6,7 +6,7 @@ require 'spec_helper'
 describe "UserFlows" do
 
   before do
-    @valid_attributes = FactoryGirl.attributes_for :user
+    @valid_attributes = attributes_for :user
   end
 
   it 'should sign up the user given valid attributes' do
