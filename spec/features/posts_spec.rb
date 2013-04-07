@@ -21,7 +21,7 @@ describe "Posts" do
       current_path.should == post_path(blog_post)
     end
 
-    it 'should get to post new if user admin' do
+    it 'should get to post new from post index' do
       sign_in_as!(admin)
       visit posts_path
       click_link 'new_post'
@@ -31,6 +31,13 @@ describe "Posts" do
     it 'should get to post edit if user admin' do
       sign_in_as!(admin)
       visit posts_path
+      click_link "edit_post_#{blog_post.id}"
+      current_path.should == edit_post_path(blog_post)
+    end
+
+    it 'should get to post edit from post show' do
+      sign_in_as!(admin)
+      visit post_path(blog_post)
       click_link "edit_post_#{blog_post.id}"
       current_path.should == edit_post_path(blog_post)
     end
@@ -55,9 +62,18 @@ describe "Posts" do
       page.should have_content 'Post updated.'
     end
 
-    it 'should delete post' do
+    it 'should delete post from index' do
       sign_in_as!(admin)
       visit posts_path
+      expect {
+        click_link "delete_post_#{blog_post.id}"
+      }.to change(Post, :count).by(-1)
+      current_path.should == posts_path
+    end
+
+    it 'should delete post from show' do
+      sign_in_as!(admin)
+      visit post_path(blog_post)
       expect {
         click_link "delete_post_#{blog_post.id}"
       }.to change(Post, :count).by(-1)
