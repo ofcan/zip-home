@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <%= render 'head' %>
+
+  <body>
+    <%= render 'bootstrap_navbar' %>
+
+    <div class="container">
+      <%= render 'flash_messages' %>
+
+      <div class="row">
+        <div class="span9">
+          <%= yield :bigger_column %>
+        </div>
+
+        <div class="span3">
+          <%= yield :smaller_column %>
+        </div>
+      </div>
+
+    <%= render 'footer' %>
+    </div>
+  </body>
+
+</html>

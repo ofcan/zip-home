@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
   before_filter :assert_admin, :only => [:new, :create, :edit, :destroy]
 
+  layout 'two_column'
+
   def index
   end
 
