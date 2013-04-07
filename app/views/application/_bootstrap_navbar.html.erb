@@ -1,0 +1,38 @@
+<!-- Twitter Bootstrap navbar -->
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="<%= root_path %>">*ZIP</a>
+
+      <div class="nav-collapse">
+        <ul class="nav pull-right">
+
+          <li><%= link_to "Blog", posts_path %></li>
+          <li><%= link_to "Startups", startups_path %></li>
+          <li><%= link_to "People", people_path %></li>
+          <li><%= link_to "Partners", partners_path %></li>
+          <li><%= link_to "Coworking", coworking_path %></li>
+          <li><%= link_to "Contact", contact_path %></li>
+
+          <% if user_signed_in? %>
+            <li><a>Logged in as <strong><%= current_user.email %></strong></a></li>
+            <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <% end %>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
