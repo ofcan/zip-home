@@ -15,3 +15,8 @@
 small {
   color: #aaa;
 }
+
+.max_width {
+  width: 100%;
+  max-width: 100%;
+}

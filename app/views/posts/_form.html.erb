@@ -1,5 +1,12 @@
-<%= form_for @post do |f| %>
-  <%= f.text_field :title, :class => 'text_area', :placeholder => "title" %>
-  <%= f.text_area :body, :rows => '18', :class => 'text_area', :placeholder => "content" %>
-  <%= f.submit :class => 'btn btn-primary' %>
+<%= simple_form_for @post do |f| %>
+
+  <%= f.input :title,
+              placeholder: "SEO uber optimised title",
+              input_html: { class: 'max_width' } %>
+  <%= f.input :body,
+              as: :text,
+              placeholder: "Once upon a time...",
+              input_html: { class: 'max_width' } %>
+  <%= f.button :submit, :class => 'btn btn-primary' %>
+
 <% end %>

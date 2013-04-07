@@ -51,6 +51,7 @@ describe "Posts" do
       blog_post.reload
       blog_post.title.should == valid_attributes[:title]
       blog_post.body.should == valid_attributes[:body]
+      current_path.should == post_path(blog_post)
       page.should have_content 'Post updated.'
     end
 
@@ -60,6 +61,7 @@ describe "Posts" do
       expect {
         click_link "delete_post_#{blog_post.id}"
       }.to change(Post, :count).by(-1)
+      current_path.should == posts_path
     end
 
   end 
