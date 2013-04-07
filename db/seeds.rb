@@ -1,7 +1,8 @@
 # Users
 user_1 = User.create( username: 'ofca',
                       email: 'sven.dupli@gmail.com',
-                      password: 'supersecret')
+                      password: 'supersecret',
+                      admin: true)
 
 # Posts
 post_1 = Post.new

@@ -14,15 +14,27 @@
       <div class="nav-collapse">
         <ul class="nav pull-right">
 
-          <li><%= link_to "Blog", posts_path %></li>
-          <li><%= link_to "Startups", startups_path %></li>
-          <li><%= link_to "People", people_path %></li>
-          <li><%= link_to "Partners", partners_path %></li>
-          <li><%= link_to "Coworking", coworking_path %></li>
-          <li><%= link_to "Contact", contact_path %></li>
+          <li class="<%= 'active' if current_page? posts_path %>">
+            <%= link_to "Blog", posts_path %>
+          </li>
+          <li class="<%= 'active' if current_page? startups_path %>">
+            <%= link_to "Startups", startups_path %>
+          </li>
+          <li class="<%= 'active' if current_page? people_path %>">
+            <%= link_to "People", people_path %>
+          </li>
+          <li class="<%= 'active' if current_page? partners_path %>">
+            <%= link_to "Partners", partners_path %>
+          </li>
+          <li class="<%= 'active' if current_page? coworking_path %>">
+            <%= link_to "Coworking", coworking_path %>
+          </li>
+          <li class="<%= 'active' if current_page? contact_path %>">
+            <%= link_to "Contact", contact_path %>
+          </li>
 
           <% if user_signed_in? %>
-            <li><a>Logged in as <strong><%= current_user.email %></strong></a></li>
+            <li><a><%= current_user.email %></a></li>
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           <% else %>

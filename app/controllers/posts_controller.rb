@@ -51,8 +51,10 @@ class PostsController < ApplicationController
   end
 
   def assert_admin
-    redirect_to posts_path unless current_user.try(:admin)
-    flash[:alert] = "You can't do that."
+    unless current_user.try(:admin)
+      redirect_to posts_path
+      flash[:alert] = "You can't do that."
+    end
   end
 
 end

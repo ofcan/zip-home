@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :remember_me,
-                  :username
+                  :username,
+                  :admin
 
   validates_presence_of :username
   validates_uniqueness_of :username
