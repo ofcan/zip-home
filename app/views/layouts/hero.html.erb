@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+  <%= render 'head' %>
+
+  <body>
+    <%= render 'bootstrap_navbar' %>
+
+    <div class='hero_background'>
+      <div class='hero_image'
+           style='background-image: url(<%= asset_path 'hero.jpg' %>);'>
+
+        <div class='container'>
+          <%= yield :header %>
+        </div><!-- /container -->
+      </div><!-- /background picture -->
+    </div><!-- /black background -->
+
+    <div class="container">
+      <%= render 'flash_messages' %>
+
+      <div class="row">
+        <div class="span12">
+          <%= yield %>
+        </div>
+      </div>
+
+    <%= render 'footer' %>
+    </div>
+  </body>
+
+</html>

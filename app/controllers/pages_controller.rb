@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  layout :set_layout
+
   def index
   end
 
@@ -16,6 +18,17 @@ class PagesController < ApplicationController
   end
 
   def contact
+  end
+
+  private
+
+  def set_layout
+    case action_name
+    when 'index', 'coworking'
+      'hero'
+    else
+    'application'
+    end
   end
 
 end
