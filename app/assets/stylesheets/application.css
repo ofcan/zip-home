@@ -20,3 +20,9 @@ small {
   width: 100%;
   max-width: 100%;
 }
+
+#footer {
+  margin-top: 40px;
+  padding: 40px;
+  background-color: #252627;
+}
