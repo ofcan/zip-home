@@ -1,8 +1,19 @@
-<%= content_for :header do %>
-  <div class='picture_txt' style='margin-top: 40px; margin-left: 20px;'>
-    <h1>Zagreb<br/>Entrepreneurship<br/>Incubator</h1>
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item my_carousel_img"><%= image_tag (asset_path 'pic_2.jpg', :size => "16x10") %></div>
+    <div class="item my_carousel_img"><%= image_tag (asset_path 'pic_5.jpg') %></div>
+    <div class="item my_carousel_img"><%= image_tag (asset_path 'pic_6.jpg') %></div>
   </div>
-<% end %>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
 
 <h1>Pages#index</h1>
 <p>Find me in app/views/pages/index.html.erb</p>

@@ -21,23 +21,9 @@ small {
   max-width: 100%;
 }
 
-.hero_background {
-  background-color: #151617;
-  margin-top: -20px;
-}
-
-.hero_image {
-  padding: 20px;
+.my_carousel_img img {
+  width: auto;
   height: 350px;
-  background-position: center 40%;
-  background-size: 1200px;
-  background-repeat: no-repeat;
-  display: compact;
-}
-
-.picture_txt {
-  text-shadow: 0px 5px 24px #000, 1px 1px 2px #000;
-  color: white;
-  a {color: white};
-  a:hover {text-decoration: none; color: white;};
+  max-height: 350px;
+  margin: 0px auto;
 }
