@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'jquery-rails'
 gem 'pg'
 gem 'devise'
 gem 'simple_form' # rails g simple_form:install --bootstrap
@@ -24,5 +25,3 @@ end
 group :development, :test do
   gem 'rspec-rails' # rails g rspec:install
 end
-
-gem 'jquery-rails'

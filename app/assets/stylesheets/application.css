@@ -20,10 +20,3 @@ small {
   width: 100%;
   max-width: 100%;
 }
-
-.my_carousel_img img {
-  width: auto;
-  height: 350px;
-  max-height: 350px;
-  margin: 0px auto;
-}
