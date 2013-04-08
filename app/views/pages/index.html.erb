@@ -12,16 +12,16 @@
         <!-- Carousel items -->
         <div class="carousel-inner">
           <div class="active item my_carousel" style="background-image: url(<%= asset_path 'pic_2.jpg' %>);">
-            <h1>Zagreb Entrepreneurship<br/>Incubator</h1>
+            <h1>Zagreb<br/>Entrepreneurship<br/>Incubator</h1>
           </div>
           <div class="item my_carousel" style="background-image: url(<%= asset_path 'pic_5.jpg' %>);">
-            <h1>Take a leap!<br/>Join a startup!</h1>
+            <h1>Take it to the<br/>next level</h1>
           </div>
           <div class="item my_carousel" style="background-image: url(<%= asset_path 'pic_6.jpg' %>);">
-            <h1>Talk with mentors!</h1>
+            <h1>Talk with mentors</h1>
           </div>
           <div class="item my_carousel" style="background-image: url(<%= asset_path 'pic_coworking_3.jpg' %>);">
-            <h1>Work in our<br/>coworking space!</h1>
+            <h1>Work in our<br/>coworking space</h1>
           </div>
         </div>
         <!-- Carousel nav -->
@@ -33,4 +33,25 @@
   </div>
 <% end %>
 
-<h2><%= link_to Post.last.title %></h2>
+<div style='margin: 40px auto;'>
+  <h1 style='color: #f47216;
+             text-align: center;'>A place to be for european startups!</h1>
+  <p style='width: 700px; margin: 0px auto; text-align: center;' class='lead'>
+    Zagrebački Inkubator Poduzetništva (Zagreb Entrepreneurship Incubator) is a non-profit organisaion with a mission to help entrepreneurs from the region of Southeastern Europe build their companies. We provide...
+  </p>
+</div>
+
+<div class="row">
+  <div class="span4">
+    <%= image_tag asset_path 'community.jpg' %>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  </div>
+  <div class="span4">
+    <%= image_tag asset_path 'events.jpg' %>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  </div>
+  <div class="span4">
+    <%= image_tag asset_path 'culture.jpg' %>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  </div>
+</div>

@@ -10,7 +10,7 @@
   <h3>Authors:</h3>
   
   <% admins.each do |admin| %>
-    <%= image_tag(gravatar_picture(admin, 60)) %>
+    <%= image_tag(gravatar_picture(admin, 60), :class => 'img-circle') %>
   <% end %>
 
 <% end %>

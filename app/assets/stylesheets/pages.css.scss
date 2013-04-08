@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .carousel_background {
+  margin-top: -20px;
   background-color: #151617;
   height: 385px;
+  border-bottom: 4px solid #bbb;
 }
+
 
 .my_carousel {
   padding: 20px;
@@ -18,8 +21,8 @@
 }
 
 .my_carousel h1 {
-  font-size: 60px;
-  line-height: 60px;
-  margin-left: 70px;
-  margin-top: 35px;
+  font-size: 68px;
+  line-height: 72px;
+  margin-left: 50px;
+  margin-top: 15px;
 }
