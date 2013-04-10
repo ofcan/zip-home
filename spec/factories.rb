@@ -15,4 +15,11 @@ FactoryGirl.define do
     sequence(:body) { |n| "post_body_#{n}" }
   end
 
+  factory :event do
+    sequence(:title) { |n| "event_title_#{n}" }
+    sequence(:description) { |n| "event_description_#{n}" }
+    sequence(:beginning) { |n| Time.now + n*60 } # n minutes
+    sequence(:ending) { |n| Time.now + (n+60)*60 } # 60 minutes after beginning
+  end
+
 end

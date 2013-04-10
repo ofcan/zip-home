@@ -14,18 +14,18 @@ describe Post do
     post.should respond_to :body
   end
 
-  it 'doesnt create new post if user is blank' do
+  it 'doesnt create new post if user is nil' do
     post.user = nil
     post.should_not be_valid
   end
 
   it 'doesnt create new post if title is blank' do
-    post.title = nil
+    post.title = ''
     post.should_not be_valid
   end
 
   it 'doesnt create new post if body is blank' do
-    post.body = nil
+    post.body = ''
     post.should_not be_valid
   end
 
