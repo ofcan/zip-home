@@ -6,10 +6,13 @@ class PagesController < ApplicationController
   def startups
   end
 
-  def zipeople
+  def people
   end
 
   def partners
+  end
+
+  def events
   end
 
   def coworking

@@ -22,6 +22,12 @@ describe "Navigation" do
       current_path.should == partners_path
     end
 
+    it 'should get to events page from home page' do
+      visit root_path
+      click_link 'Events'
+      current_path.should == events_path
+    end
+
     it 'should get to coworking page from home page' do
       visit root_path
       click_link 'Coworking'
