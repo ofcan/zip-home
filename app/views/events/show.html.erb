@@ -1,0 +1,8 @@
+<% content_for :mainbar do %>
+  <h1><%= @event.title %></h1>
+  <p>
+    <%= time_tag(@event.beginning, :format => '%B %d, %Y') %>
+    ( <%= distance_of_time_in_words(Time.now, @event.beginning) %> from now )
+  </p>
+  <%= markdown(@event.description) %>
+<% end %>

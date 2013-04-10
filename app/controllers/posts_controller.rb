@@ -50,11 +50,4 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def assert_admin
-    unless current_user.try(:admin)
-      redirect_to posts_path
-      flash[:alert] = "You can't do that."
-    end
-  end
-
 end

@@ -1,3 +1,20 @@
 <% content_for :mainbar do %>
+
   <h1>Upcoming events</h1>
+  <% @events.each do |event| %>
+    <h2><%= link_to event.title, event %></h2>
+    <p>
+      <%= time_tag(event.beginning, :format => '%B %d, %Y') %>
+      ( <%= distance_of_time_in_words(Time.now, event.beginning) %> from now )
+    </p>
+    <p><%= markdown(event.description) %></p>
+  <% end %>
+
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= link_to 'New event',
+              new_event_path,
+              :class => 'btn btn-success',
+              :id => 'new_event' if current_user.try(:admin) %>
 <% end %>

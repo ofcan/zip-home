@@ -41,6 +41,7 @@ describe PostsController do
         post :create, :post => valid_attributes
       }.to change(Post, :count).by(1)
       flash[:notice].should == 'Post created.'
+      response.should redirect_to Post.last
     end
 
     it 'should update post with valid attributes' do
