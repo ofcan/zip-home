@@ -1,6 +1,6 @@
 <%= content_for :mainbar do %>
 
-  <h2><%= link_to @post.title, @post, :id => "@post_#{@post.id}" %></h2>
+  <h1><%= @post.title %></h1>
   <small>
     by <%= @post.user.username %> on <%= time_tag(@post.created_at, :format => '%B %d, %Y') %>
     <% if current_user.try(:admin) %>

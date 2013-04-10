@@ -1,13 +1,24 @@
 <% content_for :mainbar do %>
 
   <h1>Upcoming events</h1>
-  <% @events.each do |event| %>
-    <h2><%= link_to event.title, event %></h2>
+  <% @upcoming_events.each do |upcoming_event| %>
+    <h2><%= link_to upcoming_event.title, upcoming_event %></h2>
     <p>
-      <%= time_tag(event.beginning, :format => '%B %d, %Y') %>
-      ( <%= distance_of_time_in_words(Time.now, event.beginning) %> from now )
+      <%= time_tag(upcoming_event.beginning, :format => '%B %d, %Y') %>
+      ( <%= distance_of_time_in_words(Time.now, upcoming_event.beginning) %> from now )
     </p>
-    <p><%= markdown(event.description) %></p>
+    <p><%= markdown(upcoming_event.description) %></p>
+  <% end %>
+
+  <hr/>
+  <h1>Past events</h1>
+  <% @past_events.each do |past_event| %>
+    <h2><%= link_to past_event.title, past_event %></h2>
+    <p>
+      <%= time_tag(past_event.beginning, :format => '%B %d, %Y') %>
+      ( <%= distance_of_time_in_words(Time.now, past_event.beginning) %> ago )
+    </p>
+    <p><%= markdown(past_event.description) %></p>
   <% end %>
 
 <% end %>
