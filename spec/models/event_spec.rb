@@ -30,4 +30,9 @@ describe Event do
     event.should_not be_valid
   end
 
+  it 'beginning cannot be in the past' do
+    event.beginning = Time.now - 1
+    event.should_not be_valid
+  end
+
 end
