@@ -22,11 +22,6 @@ describe PagesController do
     response.should be_success
   end
 
-  it 'can visit events page' do
-    get 'events'
-    response.should be_success
-  end
-
   it 'can visit coworking page' do
     get 'coworking'
     response.should be_success
