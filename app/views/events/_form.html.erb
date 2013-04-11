@@ -3,8 +3,12 @@
   <%= f.input :title,
               placeholder: "Super exciting title",
               input_html: { class: 'max_width' } %>
-  <%= f.input :beginning %>
-  <%= f.input :ending %>
+  <%= f.input :beginning,
+              as: :string,
+              placeholder: '26.9.2099 17:00' %>
+  <%= f.input :ending,
+              as: :string,
+              placeholder: '28.8.2099 12:15' %>
   <%= f.input :description,
               as: :text,
               placeholder: "A tiny description to get people excited...",

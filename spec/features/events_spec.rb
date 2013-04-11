@@ -25,7 +25,7 @@ describe 'Events' do
       visit new_event_path
       fill_in 'event_title', :with => valid_attributes[:title]
       fill_in 'event_description', :with => valid_attributes[:description]
-      select valid_attributes[:beginning].min, :from => 'event_beginning_5i'
+      fill_in 'event_beginning', :with => valid_attributes[:beginning]
       expect {
         click_button 'Create'
       }.to change(Event, :count).by(1)

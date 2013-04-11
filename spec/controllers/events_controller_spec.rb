@@ -50,6 +50,16 @@ describe EventsController do
       }.to_not change(Event, :count)
     end
 
+    it 'should not create event if ending is before beginning' do
+      sign_in(admin)
+      expect {
+        post :create, :event => { title: valid_attributes[:title],
+                                  description: valid_attributes[:description],
+                                  beginning: valid_attributes[:beginning],
+                                  ending: valid_attributes[:beginning] - 1 }
+      }.to_not change(Event, :count)
+    end
+
   end
 
 end
