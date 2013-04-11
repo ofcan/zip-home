@@ -59,7 +59,6 @@ describe PostsController do
       expect {
         delete :destroy, :id => blog_post
       }.to change(Post, :count).by(-1)
-
     end
 
   end

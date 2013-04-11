@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe EventsController do
 
+  let!(:user) { create :user }
   let!(:admin) { create :admin }
   let!(:event) { create :event }
   let!(:valid_attributes) { attributes_for :event }
@@ -35,6 +36,30 @@ describe EventsController do
       response.should redirect_to Event.last
     end
 
+    it 'should visit edit page' do
+      sign_in(admin)
+      get 'edit', :id => event
+      response.should be_success
+    end
+
+    it 'should update event given proper attributes' do
+      sign_in(admin)
+      put :update, :id => event, :event => valid_attributes
+      event.reload
+      event.title.should == valid_attributes[:title]
+      event.description.should == valid_attributes[:description]
+      event.location.should == valid_attributes[:location]
+      response.should redirect_to event
+      flash[:notice].should == 'Event updated.'
+    end
+
+    it 'should delete event' do
+      sign_in(admin)
+      expect {
+        delete :destroy, :id => event
+      }.to change(Event, :count).by(-1)
+    end
+
   end
 
   context 'failure' do
@@ -57,6 +82,13 @@ describe EventsController do
                                   description: valid_attributes[:description],
                                   beginning: valid_attributes[:beginning],
                                   ending: valid_attributes[:beginning] - 1 }
+      }.to_not change(Event, :count)
+    end
+
+    it 'should not delete event if user is not admin' do
+      sign_in(user)
+      expect {
+        delete :destroy, :id => event
       }.to_not change(Event, :count)
     end
 

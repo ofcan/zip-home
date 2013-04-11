@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
-  before_filter :assert_admin, :only => [:new, :create]
+  before_filter :find_event, :only => [:show, :edit, :update, :destroy]
+  before_filter :assert_admin, :only => [:new, :create, :edit, :update, :destroy]
   
   layout 'two_column'
   
@@ -10,7 +11,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def new
@@ -25,6 +25,29 @@ class EventsController < ApplicationController
       render :new
       flash.now[:alert] = 'Event not created.'
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @event.update_attributes(params[:event])
+      redirect_to @event, notice: 'Event updated.'
+    else
+      render :edit
+      flash.now[:alert] = 'Event not updated.'
+    end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to events_path, notice: 'Event destroyed.'
+  end
+
+  private
+
+  def find_event
+    @event = Event.find(params[:id])
   end
 
 end

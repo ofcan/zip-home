@@ -8,6 +8,20 @@
       ( <%= distance_of_time_in_words(Time.now, upcoming_event.beginning) %> from now )
       @ <%= upcoming_event.location %>
     </p>
+
+    <small>
+      <% if current_user.try(:admin) %>
+        <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
+                    edit_event_path(upcoming_event),
+                    :id => "edit_event_#{upcoming_event.id}" %>
+        <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
+                    event_path(upcoming_event),
+                    :method => :delete,
+                    :confirm => "Are you sure you wish to delete event '#{upcoming_event.title}' ?",
+                    :id => "delete_event_#{upcoming_event.id}" %>
+      <% end %>
+    </small>
+
     <p><%= markdown(upcoming_event.description) %></p>
   <% end %>
 

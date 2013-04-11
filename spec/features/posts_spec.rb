@@ -28,7 +28,7 @@ describe "Posts" do
       current_path.should == new_post_path
     end
 
-    it 'should get to post edit if user admin' do
+    it 'should get to post edit from post index' do
       sign_in_as!(admin)
       visit posts_path
       click_link "edit_post_#{blog_post.id}"
@@ -87,10 +87,19 @@ describe "Posts" do
 
   context 'failure' do
 
-    it 'should not get to new post from posts index if user not admin' do
+    it 'should not see links for new/edit/delete posts on index' do
       sign_in_as!(user)
       visit posts_path
       page.should_not have_link 'new_post'
+      page.should_not have_link "edit_post_#{blog_post.id}"
+      page.should_not have_link "delete_post_#{blog_post.id}"
+    end
+
+    it 'should not see links for edit/delete posts on show' do
+      sign_in_as!(user)
+      visit post_path(blog_post)
+      page.should_not have_link "edit_post_#{blog_post.id}"
+      page.should_not have_link "delete_post_#{blog_post.id}"
     end
 
     it 'should not get to new post from posts index if user not admin' do
@@ -103,8 +112,6 @@ describe "Posts" do
     it 'should not see links to delete and edit post on post index' do
       sign_in_as!(user)
       visit posts_path
-      page.should_not have_link "edit_post_#{blog_post.id}"
-      page.should_not have_link "delete_post_#{blog_post.id}"
     end
 
   end
