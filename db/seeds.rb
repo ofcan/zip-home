@@ -20,12 +20,15 @@ post_2.save
 # Events
 event_1 = Event.create( title: 'Mentor Showcase',
                         description: 'Mentors gather to criticise your arses!',
-                        beginning: Time.now + 60)
+                        beginning: Time.now + 60,
+                        location: 'ZIP.Factory')
 event_2 = Event.create( title: 'Hackathon',
                         description: 'Where hackers meet and crazy sh*t happens :)',
                         beginning: Time.now + 10.days,
-                        ending: Time.now + 11.days)
+                        ending: Time.now + 11.days,
+                        location: 'ZIP.Factory')
 event_3 = Event.create( title: 'Demo Day',
                         description: 'To review the progress',
                         beginning: Time.now + 22.days,
-                        ending: Time.now + 22.days)
+                        ending: Time.now + 22.days,
+                        location: 'ZIP.Events')

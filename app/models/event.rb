@@ -1,12 +1,18 @@
 class Event < ActiveRecord::Base
 
-  validates_presence_of :title
-  validates_presence_of :description
-  validates_presence_of :beginning
-  validate :beginning_cannot_be_in_the_past
-  validate :ending_cannot_be_before_beginning
+  validates_presence_of :title,
+                        :description,
+                        :beginning,
+                        :location
 
-  attr_accessible :beginning, :description, :ending, :title
+  validate :beginning_cannot_be_in_the_past,
+           :ending_cannot_be_before_beginning
+
+  attr_accessible :title,
+                  :description,
+                  :beginning,
+                  :ending,
+                  :location
 
   private
 

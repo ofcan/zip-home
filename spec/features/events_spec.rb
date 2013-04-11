@@ -26,6 +26,7 @@ describe 'Events' do
       fill_in 'event_title', :with => valid_attributes[:title]
       fill_in 'event_description', :with => valid_attributes[:description]
       fill_in 'event_beginning', :with => valid_attributes[:beginning]
+      fill_in 'event_location', :with => valid_attributes[:location]
       expect {
         click_button 'Create'
       }.to change(Event, :count).by(1)

@@ -3,6 +3,7 @@
   <p>
     <%= time_tag(@event.beginning, :format => '%B %d, %Y') %>
     ( <%= distance_of_time_in_words(Time.now, @event.beginning) %> from now )
+    @ <%= @event.location %>
   </p>
   <%= markdown(@event.description) %>
 <% end %>
