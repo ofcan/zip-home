@@ -21,6 +21,15 @@ small {
   max-width: 100%;
 }
 
+#startups_carousel {
+  margin: 40px 0;
+}
+
+#startups_carousel img {
+  display: block;
+  margin: 0px auto;
+}
+
 #footer {
   margin-top: 40px;
   padding: 40px;

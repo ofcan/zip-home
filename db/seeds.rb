@@ -79,23 +79,80 @@ These things may seem obvious and trivial, but it is amazing how many times I si
 post_2.user = user_1
 post_2.save
 
+post_3 = Post.new
+post_3.title = 'Differenca tra me e te'
+post_3.body = "
+What separates a good artist from a better one? There are a lot of people who are good at what they do, but only a few who are the best. What makes them stand out? What makes a painter, a baker, a programmer, an athlete the best?
+
+![armstrong](http://www.hq.nasa.gov/alsj/a11/a11.37_5528hr.jpg)
+
+Is it persistence? Talent? Willingness to fail? Personal connections? The amount of practice? It is all those things. But I think the key that separates a good artist from an average one is their **bias-free and clear vision of what is awesome and their willpower to cut the crap in order to achieve it.**
+Michelangelo once said:
+
+>In every block of marble I see a statue as plain as though it stood before me, shaped and perfect in attitude and action. I have only to hew away the rough walls that imprison the lovely apparition to reveal it to the other eyes as mine see it.
+
+A better artist is a kind of a middle-man between the utopian awesomeness and magicless reality. He doesn't care if the utopian awesomeness is out of reach for his current abilityes. He will do *anything* to be able to transcend it to reality. He will not rest until it is done.
+
+Too often I see people take the default / easy / fast route and than complain they didn't have enough inspiration / knowledge / time to do more. They point to everything but themselves when someone is better than they are. Well guess what? It is on you if someone is better than you at something. 
+
+If you're passionate about something, don't settle for anything less than what you think is great and awesome. When you work like that, when you pour your heart and soul into something, people will notice and appreciate it. And you will be happy as hell. :)"
+post_3.user = user_1
+post_3.save
+
+post_4 = Post.new
+post_4.title = 'La transizzia'
+post_4.body = "
+10 weeks ago I was just your typical cookie-cutter architecture student; 11 exams behind bachelors; having nothing tangible to show for all the hard work I've done in the past few months. Not a fun place to be...
+
+Today I work in [1st startup incubator in Croatia](http://www.zipzg.com) where I've met some of the most incredible people, write for the [most popular startup and tech portal in SE Europe](http://www.netokracija.com), deployed my 1st Rails and Jekyll apps and am only 1 exam away from my bachelors degree.
+
+>Good things happen over time; great things happen all at once. (RatRace)
+
+It is an understatement to say that I am beyong excited about the whole thing, but it can be a little overwhelming at times.
+
+I guess this is because the amount of things, emails, people, tasks and energy you interact with every day is on a whole new level and so very disproportionate to what youre used to. Add a little sleep deprivation to the mix and it can be a bit paralyzing.
+
+If you begin to have weird feelings like these, slap yourself, print out the picture below, take a deep breath and repeat after me...
+
+![Keep calm...](http://svenduplic.com/assets/images/keep_calm_1.png)
+
+This is just one of those many things separating the men from the boys. When you get what you want, don't be silly. Bulldoze your insecurities and keep on going. And don't mistake this 'transitional' period for a final destination. This is just the beginning..."
+post_4.user = user_1
+post_4.save
+
 # Events
-event_1 = Event.create( title: 'Mentor Showcase',
-                        description: 'Mentors gather to criticise your arses!',
-                        beginning: Time.now + 60,
+event_1 = Event.create( title: 'Mega Party C',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                        beginning: Time.now + 1,
+                        ending: Time.now + 3.days,
                         location: 'ZIP.Factory')
-event_2 = Event.create( title: 'Hackathon',
-                        description: 'Where hackers meet and crazy sh*t happens :)',
+event_2 = Event.create( title: 'Mega Parallel party C',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                        beginning: Time.now + 1,
+                        ending: Time.now + 3.days,
+                        location: 'ZIP.Factory')
+event_3 = Event.create( title: 'Hackathon F',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                         beginning: Time.now + 10.days,
                         ending: Time.now + 11.days,
-                        location: 'ZIP.Factory')
-event_3 = Event.create( title: 'Demo Day',
-                        description: 'To review the progress',
+                        location: 'ZIP')
+event_4 = Event.create( title: 'Demo Day F',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                         beginning: Time.now + 22.days,
                         ending: Time.now + 22.days,
                         location: 'ZIP.Events')
-event_4 = Event.create( title: 'Mega Party',
-                        description: 'A big, big party lasting a few days!!!',
+event_5 = Event.create( title: 'Demo Day 2 F',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                        beginning: Time.now + 32.days,
+                        ending: Time.now + 33.days,
+                        location: 'ZIP.Events')
+event_6 = Event.create( title: 'Mentor Showcase P',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                         beginning: Time.now + 1,
-                        ending: Time.now + 3.days,
+                        ending: Time.now + 2,
+                        location: 'ZIP.Factory')
+event_7 = Event.create( title: 'Mentor Showcase P',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                        beginning: Time.now + 1,
+                        ending: Time.now + 2,
                         location: 'ZIP.Factory')

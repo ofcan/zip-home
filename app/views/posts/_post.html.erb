@@ -16,5 +16,7 @@
   </small>
 
   <p><%= markdown(truncate (post.body), length: 800) %></p>
-  <p><%= link_to raw("<i class='icon-angle-right'></i> Read more..."), post, :class => 'btn' %></p>
+  <p><%= link_to raw("<i class='icon-angle-right'></i> Read more..."),
+                 post,
+                 :class => 'btn btn-warning' %></p>
 </div>
