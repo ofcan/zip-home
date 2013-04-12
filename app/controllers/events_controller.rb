@@ -6,8 +6,9 @@ class EventsController < ApplicationController
   layout 'two_column'
   
   def index
-    @upcoming_events = Event.where('beginning > ?', Time.now).order('beginning asc').all
-    @past_events = Event.where('beginning < ?', Time.now).order('beginning asc').all
+    @upcoming_events = Event.upcoming
+    @past_events = Event.past
+    @today_events = Event.today
   end
 
   def show

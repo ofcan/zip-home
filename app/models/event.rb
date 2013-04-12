@@ -14,6 +14,10 @@ class Event < ActiveRecord::Base
                   :ending,
                   :location
 
+  scope :past, where('beginning < ? AND ending IS NULL OR ending < ?', Time.now.beginning_of_day, Time.now.beginning_of_day)
+  scope :upcoming, where('beginning > ?', Time.now.end_of_day)
+  scope :today, where(:beginning => (Time.now.beginning_of_day..Time.now.end_of_day))
+
   private
 
   def beginning_cannot_be_in_the_past
