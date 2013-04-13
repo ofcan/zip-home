@@ -1,0 +1,7 @@
+<h3>Upcoming events <i class='icon-calendar'></i></h3>
+
+<% Event.upcoming.last(3).each do |upcoming_event| %>
+  <h3><%= link_to upcoming_event.title, upcoming_event %></h3>
+  <p><%= markdown(truncate (upcoming_event.description), length: 125) %></p>
+<% end %>
+

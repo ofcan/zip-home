@@ -37,18 +37,14 @@
   <!-- 3 most recent posts -->
   <div class='span8'>
     <h1>News <i class='icon-globe'></i></h1>
-    <% Post.last(3).each do |post| %>
+    <% Post.last(3).reverse.each do |post| %>
       <h2><%= link_to post.title, post %></h2>
       <p><%= markdown(truncate (post.body), length: 300) %></p>
     <% end %>
   </div>
   <!-- 3 upcoming events -->
   <div class='span4'>
-    <h3>Upcoming events <i class='icon-calendar'></i></h3>
-    <% Event.upcoming.last(3).each do |upcoming_event| %>
-      <h3><%= link_to upcoming_event.title, upcoming_event %></h3>
-      <p><%= markdown(truncate (upcoming_event.description), length: 125) %></p>
-    <% end %>
+    <%= render 'events_widget' %>
     <%= render 'startups_carousel' %>
   </div>
 </div>

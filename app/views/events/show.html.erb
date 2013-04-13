@@ -21,3 +21,7 @@
 
   <%= markdown(@event.description) %>
 <% end %>
+
+<% content_for :sidebar do %>
+  <%= render 'events_widget' %>
+<% end %>

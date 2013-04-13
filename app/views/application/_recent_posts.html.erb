@@ -1,0 +1,7 @@
+<h3>Recent posts</h3>
+
+<% Post.last(3).reverse.each do |post| %>
+  <ul>
+    <li><h4><%= link_to post.title, post %></h4></li>
+  </ul>
+<% end %>
