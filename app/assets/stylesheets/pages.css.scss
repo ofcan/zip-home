@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+table {
+  margin: 30px 0;
+}
+
+table caption {
+  margin-bottom: 20px;
+}
+
 .carousel_background {
   margin-top: -20px;
   background-color: #151617;

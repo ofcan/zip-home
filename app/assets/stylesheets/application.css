@@ -30,6 +30,14 @@ small {
   margin: 0px auto;
 }
 
+.schematic_icons .row {
+  margin-top: 40px;
+}
+
+.schematic_icons .span4 {
+  text-align: center;
+}
+
 #footer {
   margin-top: 40px;
   padding: 40px;

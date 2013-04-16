@@ -1,1 +1,113 @@
-<h1>Coworking</h1>
+<%= content_for :header do %>
+  <div class="carousel_background">
+    <div class='container'>
+
+      <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <div class="active item hero_carousel" style="background-position: center 40%; background-image: url(<%= asset_path 'pic_coworking_6.jpg' %>)">
+            <h1>ZIP offers great<br/>Coworking<br/>Space</h1>
+          </div>
+          <div class="item hero_carousel" style="background-image: url(<%= asset_path 'pic_coworking_3.jpg' %>);">
+            <h1>With both<br/>casual...</h1>
+          </div>
+          <div class="item hero_carousel" style="background-image: url(<%= asset_path 'pic_coworking_5.jpg' %>);">
+            <h1>And peacefull<br/>working<br/>atmosphere</h1>
+          </div>
+          <div class="item hero_carousel" style="background-image: url(<%= asset_path 'pic_coworking_4.jpg' %>);">
+            <h1 style='text-align: center;'>Join us!</h1>
+          </div>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
+
+    </div>
+  </div>
+<% end %>
+
+<div class='schematic_icons'>
+  <div class='row'>
+    <div class='span4'>
+      <i class='icon-laptop icon-4x'></i>
+      <h2>a place to work</h2>
+    </div>
+    <div class='span4'>
+      <i class='icon-coffee icon-4x'></i>
+      <h2>coffee</h2>
+    </div>
+    <div class='span4'>
+      <i class='icon-heart icon-4x'></i>
+      <h2>love</h2>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='span4'>
+      <i class='icon-signal icon-4x'></i>
+      <h2>free wi-fi</h2>
+    </div>
+    <div class='span4'>
+      <i class='icon-book icon-4x'></i>
+      <h2>book library</h2>
+    </div>
+    <div class='span4 img-circle'>
+      <i class='icon-group icon-4x'></i>
+      <h2>awesome community</h2>
+    </div>
+  </div>
+</div>
+
+"Zip is awesome" - anonymous
+
+<div class='row'>
+  <div class='span6'>
+    <table class='table'>
+      <caption><h1>Open at <i class='icon-time'></i> *</h1></caption>
+      <thead>
+        <tr>
+          <th>Monday - Friday</th>
+          <th>Weekends</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>9am - 5pm</th>
+          <th>3pm - 9pm</th>
+        </tr>
+      </tbody>
+    </table>
+    <p>* Working hours are somewhat flexible as we tend to stay longer if there’s work left to do, which there always is! :)</p>
+
+    <table class='table'>
+      <caption><h1>Pricing</h1></caption>
+        <thead>
+          <tr>
+            <th>Daily</th>
+            <th>Weekly</th>
+            <th>Monthly</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>60 kn</th>
+            <th>300 kn</th>
+            <th>800 kn</th>
+          </tr>
+        </tbody>
+    </table>
+
+  </div>
+  <div class='span6'>
+    <h1>ZIP.Factory</h1>
+    <p>Remetinečka cesta 7, Zagreb</p>
+    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=45.781487,15.955943&amp;daddr=&amp;hl=en&amp;geocode=&amp;sll=45.781861,15.957148&amp;sspn=0.010251,0.022037&amp;mra=mift&amp;mrsp=0&amp;sz=16&amp;ie=UTF8&amp;t=m&amp;ll=45.782579,15.955882&amp;spn=0.010475,0.018239&amp;z=15&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=45.781487,15.955943&amp;daddr=&amp;hl=en&amp;geocode=&amp;sll=45.781861,15.957148&amp;sspn=0.010251,0.022037&amp;mra=mift&amp;mrsp=0&amp;sz=16&amp;ie=UTF8&amp;t=m&amp;ll=45.782579,15.955882&amp;spn=0.010475,0.018239&amp;z=15" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+  </div>
+</div>
