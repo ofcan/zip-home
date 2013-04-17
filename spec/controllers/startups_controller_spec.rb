@@ -4,6 +4,7 @@ describe StartupsController do
   
   let!(:user) { create :user }
   let!(:startup) { create :startup }
+  let!(:startupship) { create :startupship }
   let!(:valid_attributes) { attributes_for :startup }
 
   context 'success' do
@@ -42,11 +43,11 @@ describe StartupsController do
       }.to change(Startupship, :count).by(1)
     end
 
-#    it 'should visit edit page' do
-#      sign_in(user)
-#      get 'edit', :id => startup
-#      response.should be_success
-#    end
+    it 'should visit edit page' do
+      sign_in(startupship.user)
+      get 'edit', :id => startupship.startup
+      response.should be_success
+    end
 
   end
 
@@ -67,6 +68,17 @@ describe StartupsController do
       expect {
         post :create, :startup => valid_attributes
       }.to_not change(Startupship, :count)
+    end
+
+    it 'should not visit edit page if user is not signed in' do
+      get 'edit', :id => startupship.startup
+      response.should_not be_success
+    end
+
+    it 'should not visit edit page if user is not admin or in that startup' do
+      sign_in(user)
+      get 'edit', :id => startupship.startup
+      response.should_not be_success
     end
 
   end

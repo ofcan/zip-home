@@ -24,6 +24,8 @@ describe User do
     user.should respond_to :realname
 
     user.should respond_to :admin
+    user.should respond_to :startups
+    user.should respond_to :startupships
   end
 
   it 'doesnt create new user if username blank' do

@@ -1,4 +1,7 @@
 class Startup < ActiveRecord::Base
+  
+  has_many :startupships
+  has_many :users, :through => :startupships
 
   # VALIDATIONS
   validates :name, :presence => true,

@@ -13,6 +13,9 @@ describe Startup do
     startup.should respond_to :name
     startup.should respond_to :short_description
     startup.should respond_to :long_description
+
+    startup.should respond_to :startupships
+    startup.should respond_to :users
   end
 
   it 'doesnt create new startup if name is blank' do

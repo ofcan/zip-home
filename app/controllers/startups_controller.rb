@@ -1,12 +1,13 @@
 class StartupsController < ApplicationController
 
-  before_filter :assert_current_user, :only => [:new, :create]
+  before_filter :find_startup, :only => [:show, :edit]
+  before_filter :assert_current_user, :only => [:new, :create, :edit]
+  before_filter :assert_startupship, :only => [:edit]
 
   def index
   end
 
   def show
-    @startup = Startup.find(params[:id])
   end
 
   def new
@@ -22,6 +23,21 @@ class StartupsController < ApplicationController
     else
       render :new
       flash.now[:alert] = 'Startup not created.'
+    end
+  end
+
+  def edit
+  end
+
+  private
+
+  def find_startup
+    @startup = Startup.find(params[:id])
+  end
+
+  def assert_startupship
+    unless find_startupship(current_user, @startup)
+      redirect_to startups_path, alert: "You can't do that."
     end
   end
 

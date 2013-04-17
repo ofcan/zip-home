@@ -15,5 +15,9 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "You can't do that."
     end
   end
+  
+  def find_startupship(user, startup)
+    user.startupships.find_by_startup_id(startup)
+  end
 
 end

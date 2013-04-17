@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
   has_many :posts
+  has_many :startupships
+  has_many :startups, :through => :startupships
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
