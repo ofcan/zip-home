@@ -4,6 +4,7 @@ describe StartupsController do
   
   let!(:user) { create :user }
   let!(:startup) { create :startup }
+  let!(:valid_attributes) { attributes_for :startup }
 
   context 'success' do
     
@@ -23,6 +24,15 @@ describe StartupsController do
       get 'new'
       response.should be_success
       assigns(:startup).should be_kind_of(Startup)
+    end
+
+    it 'should create new startup given proper attributes' do
+      sign_in(user)
+      expect {
+        post :create, :startup => valid_attributes
+      }.to change(Startup, :count).by(1)
+      flash[:notice].should == 'Startup created.'
+      response.should redirect_to Startup.last
     end
 
   end
