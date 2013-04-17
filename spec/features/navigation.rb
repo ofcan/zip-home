@@ -4,12 +4,6 @@ describe "Navigation" do
 
   describe 'Bootstrap navbar' do
 
-    it 'should get to startups page from home page' do
-      visit root_path
-      click_link 'Startups'
-      current_path.should == startups_path
-    end
-
     it 'should get to people page from home page' do
       visit root_path
       click_link 'People'
