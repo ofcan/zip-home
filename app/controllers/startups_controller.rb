@@ -7,4 +7,8 @@ class StartupsController < ApplicationController
     @startup = Startup.find(params[:id])
   end
 
+  def new
+    @startup = Startup.new
+  end
+
 end

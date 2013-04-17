@@ -18,12 +18,12 @@ describe StartupsController do
       assigns(:startup).should be_kind_of(Startup)
     end
 
-#    it 'should visit new page' do
-#      sign_in(user)
-#      get 'new'
-#      response.should be_success
-#      assigns(:event).should be_kind_of(Event)
-#    end
+    it 'should visit new page' do
+      sign_in(user)
+      get 'new'
+      response.should be_success
+      assigns(:startup).should be_kind_of(Startup)
+    end
 
   end
 
