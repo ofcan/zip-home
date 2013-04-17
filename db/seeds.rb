@@ -2,7 +2,19 @@
 user_1 = User.create( username: 'ofca',
                       email: 'sven.dupli@gmail.com',
                       password: 'supersecret',
-                      admin: true)
+                      role: 'zip_team_member')
+user_2 = User.create( username: 'ivo',
+                      email: 'ivo@example.com',
+                      password: 'supersecret',
+                      role: 'founder')
+user_3 = User.create( username: 'dave',
+                      email: 'dave@example.com',
+                      password: 'supersecret',
+                      role: 'advisor')
+user_4 = User.create( username: 'lukaabrus',
+                      email: 'luka@example.com',
+                      password: 'supersecret',
+                      role: 'mentor')
 
 # Posts
 post_1 = Post.new

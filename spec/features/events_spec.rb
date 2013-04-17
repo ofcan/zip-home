@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Events' do
 
   let!(:user) { create :user }
-  let!(:admin) { create :admin }
+  let!(:founder) { create :founder }
   let!(:event) { create :event }
   let!(:valid_attributes) { attributes_for :event }
 
@@ -16,14 +16,14 @@ describe 'Events' do
     end
 
     it 'should get to event new from event index' do
-      sign_in_as!(admin)
+      sign_in_as!(founder)
       visit events_path
       click_link 'new_event'
       current_path.should == new_event_path
     end
 
     it 'should create new event' do
-      sign_in_as!(admin)
+      sign_in_as!(founder)
       visit new_event_path
       fill_in 'event_title', :with => valid_attributes[:title]
       fill_in 'event_description', :with => valid_attributes[:description]
@@ -36,21 +36,21 @@ describe 'Events' do
     end
 
     it 'should get to event edit page from index' do
-      sign_in_as!(admin)
+      sign_in_as!(founder)
       visit events_path
       click_link "edit_event_#{event.id}"
       current_path.should == edit_event_path(event)
     end
 
     it 'should get to event edit page from show' do
-      sign_in_as!(admin)
+      sign_in_as!(founder)
       visit event_path(event)
       click_link "edit_event_#{event.id}"
       current_path.should == edit_event_path(event)
     end
 
     it 'should update event' do
-      sign_in_as!(admin)
+      sign_in_as!(founder)
       visit edit_event_path(event)
       fill_in 'event_title', :with => valid_attributes[:title]
       fill_in 'event_description', :with => valid_attributes[:description]
@@ -65,7 +65,7 @@ describe 'Events' do
     end
 
     it 'should delete event from index' do
-      sign_in_as!(admin)
+      sign_in_as!(founder)
       visit events_path
       expect {
         click_link "delete_event_#{event.id}"
@@ -73,7 +73,7 @@ describe 'Events' do
     end
 
     it 'should delete event from show' do
-      sign_in_as!(admin)
+      sign_in_as!(founder)
       visit event_path(event)
       expect {
         click_link "delete_event_#{event.id}"

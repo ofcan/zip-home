@@ -3,7 +3,7 @@ require 'spec_helper'
 describe EventsController do
 
   let!(:user) { create :user }
-  let!(:admin) { create :admin }
+  let!(:founder) { create :founder }
   let!(:event) { create :event }
   let!(:valid_attributes) { attributes_for :event }
 
@@ -15,7 +15,7 @@ describe EventsController do
     end
 
     it 'should visit new page' do
-      sign_in(admin)
+      sign_in(founder)
       get 'new'
       response.should be_success
       assigns(:event).should be_kind_of(Event)
@@ -28,7 +28,7 @@ describe EventsController do
     end
 
     it 'should create new event given proper attributes' do
-      sign_in(admin)
+      sign_in(founder)
       expect {
         post :create, :event => valid_attributes
       }.to change(Event, :count).by(1)
@@ -37,13 +37,13 @@ describe EventsController do
     end
 
     it 'should visit edit page' do
-      sign_in(admin)
+      sign_in(founder)
       get 'edit', :id => event
       response.should be_success
     end
 
     it 'should update event given proper attributes' do
-      sign_in(admin)
+      sign_in(founder)
       put :update, :id => event, :event => valid_attributes
       event.reload
       event.title.should == valid_attributes[:title]
@@ -54,7 +54,7 @@ describe EventsController do
     end
 
     it 'should delete event' do
-      sign_in(admin)
+      sign_in(founder)
       expect {
         delete :destroy, :id => event
       }.to change(Event, :count).by(-1)
@@ -76,7 +76,7 @@ describe EventsController do
     end
 
     it 'should not create event if ending is before beginning' do
-      sign_in(admin)
+      sign_in(founder)
       expect {
         post :create, :event => { title: valid_attributes[:title],
                                   description: valid_attributes[:description],
@@ -85,7 +85,7 @@ describe EventsController do
       }.to_not change(Event, :count)
     end
 
-    it 'should not delete event if user is not admin' do
+    it 'should not delete event if user is not founder' do
       sign_in(user)
       expect {
         delete :destroy, :id => event

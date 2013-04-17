@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PostsController do
   
   let!(:user) { create :user }
-  let!(:admin) { create :admin }
+  let!(:founder) { create :founder }
   let!(:blog_post) { create :post }
   let!(:valid_attributes) { attributes_for :post }
   let!(:invalid_attributes) { { :title => '', :body => '' } }
@@ -16,7 +16,7 @@ describe PostsController do
     end
 
     it 'should visit new page and have proper variables' do
-      sign_in(admin)
+      sign_in(founder)
       get 'new'
       response.should be_success
       assigns(:post).should be_kind_of(Post)
@@ -29,14 +29,14 @@ describe PostsController do
     end
 
     it 'should visit edit page and have proper variables' do
-      sign_in(admin)
+      sign_in(founder)
       get :edit, :id => blog_post
       response.should be_success
       assigns(:post).should be_kind_of(Post)
     end
 
     it 'should create new post given proper attributes' do
-      sign_in(admin)
+      sign_in(founder)
       expect {
         post :create, :post => valid_attributes
       }.to change(Post, :count).by(1)
@@ -45,7 +45,7 @@ describe PostsController do
     end
 
     it 'should update post with valid attributes' do
-      sign_in(admin)
+      sign_in(founder)
       put :update, :id => blog_post, :post => valid_attributes
       blog_post.reload
       blog_post.title.should == valid_attributes[:title]
@@ -55,7 +55,7 @@ describe PostsController do
     end
 
     it 'should delete post' do
-      sign_in(admin)
+      sign_in(founder)
       expect {
         delete :destroy, :id => blog_post
       }.to change(Post, :count).by(-1)
@@ -78,7 +78,7 @@ describe PostsController do
     end
 
     it 'should not create new post given invalid attributes' do
-      sign_in(admin)
+      sign_in(founder)
       expect {
         post :create, :post => invalid_attributes
       }.to_not change(Post, :count)
@@ -86,7 +86,7 @@ describe PostsController do
     end
 
     it 'should not update post given invalid attributes' do
-      sign_in(admin)
+      sign_in(founder)
       put :update, :id => blog_post, :post => invalid_attributes
       blog_post.reload
       blog_post.title.should_not == valid_attributes[:title]
@@ -95,7 +95,7 @@ describe PostsController do
       flash[:alert].should == 'Post not updated.'
     end
 
-    it 'should not delete post if user is not admin' do
+    it 'should not delete post if user is not founder' do
       sign_in(user)
       expect {
         delete :destroy, :id => blog_post
