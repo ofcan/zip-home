@@ -13,7 +13,9 @@ class StartupsController < ApplicationController
 
   def create
     @startup = Startup.new(params[:startup])
-    if @startup.save
+    @startupship = Startupship.new(:user => current_user,
+                                   :startup => @startup)
+    if @startup.save && @startupship.save
       redirect_to @startup, notice: 'Startup created.'
     else
       render :new

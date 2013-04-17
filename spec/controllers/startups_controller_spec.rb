@@ -34,6 +34,13 @@ describe StartupsController do
       flash[:notice].should == 'Startup created.'
       response.should redirect_to Startup.last
     end
+    
+    it 'should create new startupship when creating startup' do
+      sign_in(user)
+      expect {
+        post :create, :startup => valid_attributes
+      }.to change(Startupship, :count).by(1)
+    end
 
 #    it 'should visit edit page' do
 #      sign_in(user)
