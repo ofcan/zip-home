@@ -12,11 +12,6 @@ describe PagesController do
     response.should be_success
   end
 
-  it 'can visit people page' do
-    get 'people'
-    response.should be_success
-  end
-
   it 'can visit partners page' do
     get 'partners'
     response.should be_success

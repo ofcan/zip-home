@@ -13,7 +13,7 @@ describe "Navigation" do
     it 'should get to people page from home page' do
       visit root_path
       click_link 'People'
-      current_path.should == people_path
+      current_path.should == users_path
     end
 
     it 'should get to partners page from home page' do

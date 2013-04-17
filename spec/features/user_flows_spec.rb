@@ -5,6 +5,8 @@ require 'spec_helper'
 
 describe "UserFlows" do
 
+  let!(:user) { create :user }
+
   before do
     @valid_attributes = attributes_for :user
   end
@@ -21,6 +23,11 @@ describe "UserFlows" do
       click_button 'Sign up'
       page.should have_content 'success'
     }.to change(User, :count).by(1)
+  end
+
+  it 'should go to user show page' do
+    visit users_path
+    click_link "user_#{user.id}"
   end
 
 end

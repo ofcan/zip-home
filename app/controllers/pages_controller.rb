@@ -6,9 +6,6 @@ class PagesController < ApplicationController
   def startups
   end
 
-  def people
-  end
-
   def partners
   end
 

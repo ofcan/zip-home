@@ -5,10 +5,11 @@ ZipHome::Application.routes.draw do
   root :to => 'pages#index'
 
   match 'startups', :to => 'pages#startups'
-  match 'people', :to => 'pages#people'
   match 'partners', :to => 'pages#partners'
   match 'coworking', :to => 'pages#coworking'
   match 'contact', :to => 'pages#contact'
+
+  resources :users, :only => [:index]
 
   resources :posts
   resources :events
