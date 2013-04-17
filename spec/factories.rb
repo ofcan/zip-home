@@ -34,4 +34,10 @@ FactoryGirl.define do
     sequence(:ending) { |n| Time.now + (n+60)*60 } # 60 minutes after beginning
   end
 
+  factory :startup do
+    sequence(:name) { |n| "startup_name_#{n}" }
+    sequence(:short_description) { |n| "startup_short_description_#{n}" }
+    sequence(:long_description) { |n| "startup_long_description_#{n}" }
+  end
+
 end
