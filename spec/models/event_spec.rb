@@ -4,7 +4,7 @@ describe Event do
   
   let!(:event) { build :event }
 
-  it 'creates new event' do
+  it 'builds new event' do
     event.should be_valid
   end
 

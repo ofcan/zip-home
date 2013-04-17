@@ -40,4 +40,9 @@ FactoryGirl.define do
     sequence(:long_description) { |n| "startup_long_description_#{n}" }
   end
 
+  factory :startupship do
+    user
+    startup
+  end
+
 end

@@ -35,6 +35,12 @@ describe StartupsController do
       response.should redirect_to Startup.last
     end
 
+#    it 'should visit edit page' do
+#      sign_in(user)
+#      get 'edit', :id => startup
+#      response.should be_success
+#    end
+
   end
 
 end
