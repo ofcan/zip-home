@@ -7,6 +7,12 @@ FactoryGirl.define do
     factory :founder do
       role 'founder'
     end
+    factory :advisor do
+      role 'advisor'
+    end
+    factory :mentor do
+      role 'mentor'
+    end
     factory :zip_team_member do
       role 'zip_team_member'
     end

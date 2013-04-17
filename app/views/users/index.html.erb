@@ -1,23 +1,23 @@
 <h1>Founders</h1>
 <% @founders.each do |user| %>
   <%= image_tag(gravatar_picture(user, 100), :class => 'img-circle') %>
-  <%= user.username %>
+  <%= link_to user.username, user, :id => "user_#{user.id}" %>
 <% end %>
 
 <h1>Advisory Board</h1>
 <% @advisors.each do |user| %>
   <%= image_tag(gravatar_picture(user, 100), :class => 'img-circle') %>
-  <%= user.username %>
+  <%= link_to user.username, user, :id => "user_#{user.id}" %>
 <% end %>
 
 <h1>Mentors</h1>
 <% @mentors.each do |user| %>
   <%= image_tag(gravatar_picture(user, 100), :class => 'img-circle') %>
-  <%= user.username %>
+  <%= link_to user.username, user, :id => "user_#{user.id}" %>
 <% end %>
 
 <h1>ZIP team members</h1>
 <% @team_members.each do |user| %>
   <%= image_tag(gravatar_picture(user, 100), :class => 'img-circle') %>
-  <%= link_to user.username %>
+  <%= link_to user.username, user, :id => "user_#{user.id}" %>
 <% end %>

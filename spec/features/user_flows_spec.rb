@@ -6,6 +6,10 @@ require 'spec_helper'
 describe "UserFlows" do
 
   let!(:user) { create :user }
+  let!(:founder) { create :founder }
+  let!(:advisor) { create :advisor }
+  let!(:mentor) { create :mentor }
+  let!(:zip_team_member) { create :zip_team_member }
 
   before do
     @valid_attributes = attributes_for :user
@@ -25,9 +29,28 @@ describe "UserFlows" do
     }.to change(User, :count).by(1)
   end
 
-  it 'should go to user show page' do
+  it 'should go to founder show page' do
     visit users_path
-    click_link "user_#{user.id}"
+    click_link "user_#{founder.id}"
+    current_path.should == user_path(founder)
+  end
+
+  it 'should go to advisor show page' do
+    visit users_path
+    click_link "user_#{advisor.id}"
+    current_path.should == user_path(advisor)
+  end
+
+  it 'should go to mentor show page' do
+    visit users_path
+    click_link "user_#{mentor.id}"
+    current_path.should == user_path(mentor)
+  end
+
+  it 'should go to zip_team_member show page' do
+    visit users_path
+    click_link "user_#{zip_team_member.id}"
+    current_path.should == user_path(zip_team_member)
   end
 
 end
