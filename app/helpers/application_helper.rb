@@ -14,8 +14,4 @@ module ApplicationHelper
     "http://gravatar.com/avatar/#{gravatar_id}.png?d=identicon&size=#{size}"
   end
 
-  def admins
-    User.all.select { |user| user.admin }
-  end
-  
 end

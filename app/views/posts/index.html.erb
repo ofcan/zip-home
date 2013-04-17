@@ -9,8 +9,8 @@
               :class => 'btn btn-success' if current_user.try(:admin) %>
   <h3>Authors:</h3>
 
-  <%= render 'admins_widget' %>
-  <%= render 'events_widget' %>
-  <%= render 'startups_carousel' %>
+  <%= render 'application/widgets/admins' %>
+  <%= render 'application/widgets/events' %>
+  <%= render 'application/widgets/startups_carousel' %>
 
 <% end %>
