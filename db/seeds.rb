@@ -2,7 +2,9 @@
 user_1 = User.create( username: 'ofca',
                       email: 'sven.dupli@gmail.com',
                       password: 'supersecret',
-                      role: 'zip_team_member')
+                      role: 'zip_team_member',
+                      bio: 'Startup guy, swell and fly!',
+                      realname: 'Sven Duplic')
 user_2 = User.create( username: 'ivo',
                       email: 'ivo@example.com',
                       password: 'supersecret',

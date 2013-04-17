@@ -10,6 +10,12 @@
   <%= f.input :username,
               hint: 'e.g. theBat',
               input_html: { class: 'input-xlarge' } %>
+  <%= f.input :realname,
+              hint: 'e.g. Bruce Wayne',
+              input_html: { class: 'input-xlarge' } %>
+  <%= f.input :bio,
+              hint: 'e.g. Business man by day; fighting crime by night',
+              input_html: { class: 'input-xlarge', rows: '10' } %>
   <%= f.input :email,
               hint: 'e.g. bruce.wayne@example.com',
               as: :email,

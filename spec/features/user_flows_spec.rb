@@ -24,9 +24,30 @@ describe "UserFlows" do
       fill_in 'user_email', :with => @valid_attributes[:email]
       fill_in 'user_password', :with => @valid_attributes[:password]
       fill_in 'user_password_confirmation', :with => @valid_attributes[:password]
+      fill_in 'user_bio', :with => @valid_attributes[:bio]
+      fill_in 'user_realname', :with => @valid_attributes[:realname]
       click_button 'Sign up'
       page.should have_content 'success'
     }.to change(User, :count).by(1)
+  end
+
+  it 'should update user given valid attributes' do
+    sign_in_as!(user)
+    visit edit_user_registration_path(user)
+    fill_in 'user_username', :with => @valid_attributes[:username]
+    fill_in 'user_realname', :with => @valid_attributes[:realname]
+    fill_in 'user_bio', :with => @valid_attributes[:bio]
+    fill_in 'user_email', :with => @valid_attributes[:email]
+    fill_in 'user_password', :with => @valid_attributes[:password]
+    fill_in 'user_password_confirmation', :with => @valid_attributes[:password]
+    fill_in 'user_current_password', :with => user.password
+    click_button 'Update'
+    user.reload
+    user.username.should == @valid_attributes[:username]
+    user.realname.should == @valid_attributes[:realname]
+    user.bio.should == @valid_attributes[:bio]
+    user.email.should == @valid_attributes[:email]
+    user.password.should == @valid_attributes[:password]
   end
 
   it 'should go to founder show page' do

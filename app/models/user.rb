@@ -13,7 +13,9 @@ class User < ActiveRecord::Base
                   :password_confirmation,
                   :remember_me,
                   :username,
-                  :role
+                  :role,
+                  :realname,
+                  :bio
 
   validates_presence_of :username
   validates_uniqueness_of :username
