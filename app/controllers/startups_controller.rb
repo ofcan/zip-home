@@ -1,5 +1,7 @@
 class StartupsController < ApplicationController
 
+  before_filter :assert_current_user, :only => [:new, :create]
+
   def index
   end
 

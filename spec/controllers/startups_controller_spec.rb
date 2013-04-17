@@ -50,4 +50,25 @@ describe StartupsController do
 
   end
 
+  context 'failure' do
+
+    it 'should not visit new page if user is not logged in' do
+      get 'new'
+      response.should_not be_success
+    end
+
+    it 'should not create startup if user is not signed in' do
+      expect {
+        post :create, :startup => valid_attributes
+      }.to_not change(Startup, :count)
+    end
+
+    it 'should not create startupship if user is not signed in' do
+      expect {
+        post :create, :startup => valid_attributes
+      }.to_not change(Startupship, :count)
+    end
+
+  end
+
 end
