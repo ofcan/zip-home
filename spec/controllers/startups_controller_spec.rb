@@ -12,12 +12,18 @@ describe StartupsController do
       response.should be_success
     end
 
-    it 'should visit new page' do
-      sign_in(user)
-      get 'new'
+    it 'should visit show page and have proper variables' do
+      get 'show', :id => startup
       response.should be_success
-      assigns(:event).should be_kind_of(Event)
+      assigns(:startup).should be_kind_of(Startup)
     end
+
+#    it 'should visit new page' do
+#      sign_in(user)
+#      get 'new'
+#      response.should be_success
+#      assigns(:event).should be_kind_of(Event)
+#    end
 
   end
 

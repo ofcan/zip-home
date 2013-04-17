@@ -14,15 +14,15 @@ describe EventsController do
       response.should be_success
     end
 
-    it 'should visit new page' do
-      sign_in(founder)
-      get 'new'
+    it 'should visit show page and have proper variables' do
+      get 'show', :id => event
       response.should be_success
       assigns(:event).should be_kind_of(Event)
     end
 
-    it 'should visit show page and have proper variables' do
-      get 'show', :id => event
+    it 'should visit new page' do
+      sign_in(founder)
+      get 'new'
       response.should be_success
       assigns(:event).should be_kind_of(Event)
     end
