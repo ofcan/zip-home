@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
+/* GENERAL */
 small {
   color: #aaa;
 }
@@ -21,6 +22,15 @@ small {
   max-width: 100%;
 }
 
+
+/* MAIN */
+#footer {
+  margin-top: 40px;
+  padding: 40px;
+  background-color: #252627;
+}
+
+/* CAROUSEL */
 #startups_carousel {
   margin: 40px 0;
 }
@@ -30,6 +40,7 @@ small {
   margin: 0px auto;
 }
 
+/* ICONS */
 .schematic_icons .row {
   margin-top: 40px;
 }
@@ -38,8 +49,11 @@ small {
   text-align: center;
 }
 
-#footer {
-  margin-top: 40px;
-  padding: 40px;
-  background-color: #252627;
+.schematic_icons .icon_background {
+   padding: 15px;
+   color: #9bc957;
+   background-color: #444;
+   border-radius: 50%;
+   width: 150px;
+   margin: 0px auto;
 }
