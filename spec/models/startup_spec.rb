@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Startup do
-  let!(:startup) { build :startup }
+
+  let!(:startup) { create :startup }
+  let!(:another_startup) { create :startup }
 
   it 'creates new startup' do
     startup.should be_valid
@@ -26,6 +28,11 @@ describe Startup do
   it 'doesnt create new startup if long_description is blank' do
     startup.long_description = ''
     startup.should_not be_valid
+  end
+
+  it 'doesnt create new startup with name wich already exists' do
+    another_startup.name = startup.name
+    another_startup.should_not be_valid
   end
 
 end
