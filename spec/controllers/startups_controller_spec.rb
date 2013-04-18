@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe StartupsController do
   
+  let!(:founder) { create :founder }
   let!(:user) { create :user }
   let!(:startup) { create :startup }
   let!(:startupship) { create :startupship }
@@ -43,10 +44,38 @@ describe StartupsController do
       }.to change(Startupship, :count).by(1)
     end
 
-    it 'should visit edit page' do
+    it 'should visit edit page if user is member of that startup' do
       sign_in(startupship.user)
       get 'edit', :id => startupship.startup
       response.should be_success
+    end
+
+    it 'should visit edit page if user is admin' do
+      sign_in(founder)
+      get 'edit', :id => startupship.startup
+      response.should be_success
+    end
+
+    it 'founder should update startup given proper attributes' do
+      sign_in(founder)
+      put :update, :id => startup, :startup => valid_attributes
+      startup.reload
+      startup.name.should == valid_attributes[:name]
+      startup.short_description.should == valid_attributes[:short_description]
+      startup.long_description.should == valid_attributes[:long_description]
+      response.should redirect_to startup
+      flash[:notice].should == 'Startup updated.'
+    end
+
+    it 'user from that startup should update startup given proper attributes' do
+      sign_in(startupship.user)
+      put :update, :id => startupship.startup, :startup => valid_attributes
+      startupship.startup.reload
+      startupship.startup.name.should == valid_attributes[:name]
+      startupship.startup.short_description.should == valid_attributes[:short_description]
+      startupship.startup.long_description.should == valid_attributes[:long_description]
+      response.should redirect_to startupship.startup
+      flash[:notice].should == 'Startup updated.'
     end
 
   end
@@ -79,6 +108,16 @@ describe StartupsController do
       sign_in(user)
       get 'edit', :id => startupship.startup
       response.should_not be_success
+    end
+
+    it 'basic user should not update startup given proper attributes' do
+      sign_in(user)
+      put :update, :id => startup, :startup => valid_attributes
+      startup.reload
+      startup.name.should_not == valid_attributes[:name]
+      startup.short_description.should_not == valid_attributes[:short_description]
+      startup.long_description.should_not == valid_attributes[:long_description]
+      flash[:alert].should == "You can't do that."
     end
 
   end
