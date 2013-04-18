@@ -6,6 +6,7 @@ gem 'pg'
 gem 'devise'
 gem 'simple_form' # rails g simple_form:install --bootstrap
 gem 'redcarpet'
+gem 'paperclip'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

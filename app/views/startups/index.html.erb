@@ -8,6 +8,7 @@
 
   <h2><%= link_to startup.name, startup %></h2>
   <p><%= startup.short_description %></p>
+  <%= image_tag startup.logo.url(:standard) %>
 
   <% if current_user.try(:admin) || startup.users.include?(current_user) %>
     <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),

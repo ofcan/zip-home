@@ -1,7 +1,9 @@
-<%= simple_form_for @startup do |f| %>
+<%= simple_form_for @startup,
+                    :html => { multipart: true } do |f| %>
 
   <%= f.input :name,
               input_html: { class: 'input-xlarge' } %>
+  <%= f.file_field :logo %>
   <%= f.input :short_description,
               hint: 'max 100 characters',
               as: :text,

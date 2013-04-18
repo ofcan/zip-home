@@ -1,3 +1,6 @@
+include ActionDispatch::TestProcess
+# line up makes available for startup.logo to work in factories
+
 FactoryGirl.define do
 
   factory :user do
@@ -38,6 +41,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "startup_name_#{n}" }
     sequence(:short_description) { |n| "startup_short_description_#{n}" }
     sequence(:long_description) { |n| "startup_long_description_#{n}" }
+    logo { fixture_file_upload(Rails.root.join('app','assets','images','startups','mashme_logo.png'), 'image/png') }
   end
 
   factory :startupship do
