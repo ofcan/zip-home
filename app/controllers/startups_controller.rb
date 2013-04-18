@@ -1,8 +1,8 @@
 class StartupsController < ApplicationController
 
-  before_filter :find_startup, :only => [:show, :edit, :update]
-  before_filter :assert_current_user, :only => [:new, :create, :edit]
-  before_filter :assert_startupship_or_admin, :only => [:edit, :update]
+  before_filter :find_startup, :only => [:show, :edit, :update, :destroy]
+  before_filter :assert_current_user, :except => [:show, :index]
+  before_filter :assert_startupship_or_admin, :only => [:edit, :update, :destroy]
 
   def index
   end
@@ -36,6 +36,11 @@ class StartupsController < ApplicationController
       render :edit
       flash.now[:alert] = 'Startup not updated.'
     end
+  end
+
+  def destroy
+    @startup.destroy
+    redirect_to startups_path, notice: 'Startup destroyed.'
   end
 
   private

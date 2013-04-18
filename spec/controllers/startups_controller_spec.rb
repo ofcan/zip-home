@@ -78,6 +78,20 @@ describe StartupsController do
       flash[:notice].should == 'Startup updated.'
     end
 
+    it 'founder should delete startup' do
+      sign_in(founder)
+      expect {
+        delete :destroy, :id => startup
+      }.to change(Startup, :count).by(-1)
+    end
+
+    it 'startup member should delete startup' do
+      sign_in(startupship.user)
+      expect {
+        delete :destroy, :id => startupship.startup
+      }.to change(Startup, :count).by(-1)
+    end
+
   end
 
   context 'failure' do
@@ -119,6 +133,14 @@ describe StartupsController do
       startup.long_description.should_not == valid_attributes[:long_description]
       flash[:alert].should == "You can't do that."
     end
+
+    it 'basic user should not delete startup' do
+      sign_in(user)
+      expect {
+        delete :destroy, :id => startup
+      }.to_not change(Startup, :count)
+    end
+
 
   end
 
