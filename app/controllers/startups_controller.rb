@@ -62,7 +62,7 @@ class StartupsController < ApplicationController
 
   def set_proper_layout
     case action_name
-    when 'new'
+    when 'new', 'edit'
       'two_column'
     else
       'application'

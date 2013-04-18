@@ -1,3 +1,29 @@
-<h1><%= @startup.name %></h1>
-<h3><%= @startup.short_description %></h3>
-<p><%= markdown(@startup.long_description) %></p>
+<div class='row'>
+  
+  <div class='span8'>
+    <h1><%= @startup.name %></h1>
+
+    <% if current_user.try(:admin) || @startup.users.include?(current_user) %>
+      <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
+                  edit_startup_path(@startup),
+                  :id => "edit_startup_#{@startup.id}" %>
+      <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
+                  startup_path(@startup),
+                  :method => :delete,
+                  :confirm => "Are you sure you wish to delete startup '#{@startup.name}' ?",
+                  :id => "delete_startup_#{@startup.id}" %>
+    <% end %>
+
+    <h3><%= @startup.short_description %></h3>
+    <p><%= markdown(@startup.long_description) %></p>
+  </div>
+
+  <div class='span4'>
+    <h3>Members</h3>
+    <% @startup.users.each do |user| %>
+      <%= image_tag(gravatar_picture(user, 100), :class => 'img-circle') %>
+      <%= user.username %>
+    <% end %>
+  </div>
+
+</div>
