@@ -1,1 +1,8 @@
-<h1>New startup</h1>
+<% content_for :mainbar do %>
+  <h1>New startup</h1>
+  <%= render 'form' %>
+<% end %>
+
+<%= content_for :sidebar do %>
+  <%= render 'application/widgets/startups_carousel' %>
+<% end %>

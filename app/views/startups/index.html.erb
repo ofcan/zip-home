@@ -1,1 +1,8 @@
 <h1>Startups!</h1>
+<% @startups.each do |startup| %>
+  <%= link_to startup.name, startup %>
+<% end %>
+
+<%= link_to 'New Startup',
+            new_startup_path,
+            :id => 'new_startup' if current_user %>

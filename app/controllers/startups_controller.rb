@@ -4,7 +4,10 @@ class StartupsController < ApplicationController
   before_filter :assert_current_user, :except => [:show, :index]
   before_filter :assert_startupship_or_admin, :only => [:edit, :update, :destroy]
 
+  layout :set_proper_layout
+
   def index
+    @startups = Startup.all
   end
 
   def show
@@ -54,6 +57,15 @@ class StartupsController < ApplicationController
       # there is no need for current_user.try(:admin)
       # because we assert_current_user with another before_filter
       redirect_to startups_path, alert: "You can't do that."
+    end
+  end
+
+  def set_proper_layout
+    case action_name
+    when 'new'
+      'two_column'
+    else
+      'application'
     end
   end
 

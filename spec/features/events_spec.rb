@@ -15,6 +15,12 @@ describe 'Events' do
       current_path.should == events_path
     end
 
+    it 'should get to event show from index' do
+      visit events_path
+      click_link "#{event.title}"
+      current_path.should == event_path(event)
+    end
+
     it 'should get to event new from event index' do
       sign_in_as!(founder)
       visit events_path

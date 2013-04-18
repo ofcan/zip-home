@@ -1,0 +1,18 @@
+<%= simple_form_for @startup do |f| %>
+
+  <%= f.input :name,
+              input_html: { class: 'input-xlarge' } %>
+  <%= f.input :short_description,
+              hint: 'max 100 characters',
+              as: :text,
+              input_html: { class: 'input-xlarge', rows: '3' } %>
+  <%= f.input :long_description,
+              as: :text, 
+              input_html: { class: 'input-xxlarge', rows: '10' } %>
+
+  <%= render 'markdown_cheatsheet' %>
+
+  <%= f.button :submit, :class => 'btn btn-primary' %>
+
+
+<% end %>
