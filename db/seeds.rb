@@ -18,6 +18,21 @@ user_4 = User.create( username: 'lukaabrus',
                       password: 'supersecret',
                       role: 'mentor')
 
+# Startups
+startup_1 = Startup.create( name: 'GitArchitect',
+                            short_description: 'Github for Architects',
+                            long_description: "Version control, **project collaboration and sharing** across architecture and construction",
+                            logo: File.open(Rails.root.join('app', 'assets', 'images', 'startups', 'octocat.png')))
+startup_2 = Startup.create( name: '5 minuta',
+                            short_description: 'Design and Dev guys for 21st century!',
+                            long_description: "We're a young and vibrant company based in Zagreb, Croatia. Founded in 2007 with 40 employees, we work primarily in mobile development area serving customers from more than 10 countries world wide. Our focus are new technologies and next-generation apps.",
+                            logo: File.open(Rails.root.join('app', 'assets', 'images', 'startups', 'pet_minuta_logo.png')))
+# Startupships
+startupship_1 = Startupship.create( user: user_1,
+                                    startup: startup_1)
+startupship_2 = Startupship.create( user: user_4,
+                                    startup: startup_2)
+
 # Posts
 post_1 = Post.new
 post_1.title = 'Proslava useljenja novih ZIP startupa!'

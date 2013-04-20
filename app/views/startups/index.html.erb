@@ -1,24 +1,16 @@
 <%= link_to 'New Startup',
             new_startup_path,
-            :id => 'new_startup' if current_user %>
-
-<h1>Startups!</h1>
+            :id => 'new_startup',
+            :class => 'btn btn-warning' if current_user %>
 
 <% @startups.each do |startup| %>
-
-  <h2><%= link_to startup.name, startup %></h2>
-  <p><%= startup.short_description %></p>
-  <%= image_tag startup.logo.url(:standard) %>
-
-  <% if current_user.try(:admin) || startup.users.include?(current_user) %>
-    <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
-                edit_startup_path(startup),
-                :id => "edit_startup_#{startup.id}" %>
-    <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
-                startup_path(startup),
-                :method => :delete,
-                :confirm => "Are you sure you wish to delete startup '#{startup.name}' ?",
-                :id => "delete_startup_#{startup.id}" %>
-  <% end %>
-
+  <div class='startup'>
+    <div class='startup_image'>
+      <%= image_tag startup.logo.url(:standard) %>
+    </div>
+    <div class='startup_text'>
+      <h2><%= link_to startup.name, startup %></h2>
+      <p><%= startup.short_description %></p>
+    </div>
+  </div>
 <% end %>

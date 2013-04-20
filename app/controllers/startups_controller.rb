@@ -15,6 +15,7 @@ class StartupsController < ApplicationController
 
   def new
     @startup = Startup.new
+    @title = 'New startup'
   end
 
   def create
@@ -30,6 +31,7 @@ class StartupsController < ApplicationController
   end
 
   def edit
+    @title = "Edit startup"
   end
 
   def update

@@ -1,20 +1,28 @@
+<legend><h1><%= @title %></h1></legend>
+
 <%= simple_form_for @startup,
-                    :html => { multipart: true } do |f| %>
+                    :html => { class: 'form-horizontal', multipart: true } do |f| %>
 
   <%= f.input :name,
-              input_html: { class: 'input-xlarge' } %>
-  <%= f.file_field :logo %>
+              input_html: { class: 'max_width' } %>
+
+  <%= f.input :logo, hint: 'ProTIP: provide square pictures for best effect' do %>
+    <%= image_tag @startup.logo.url(:standard), :class => 'img-polaroid', :style => 'margin-bottom: 8px;' %>
+    <br/>
+    <%= f.file_field :picture %>
+  <% end %>
+
   <%= f.input :short_description,
               hint: 'max 100 characters',
               as: :text,
-              input_html: { class: 'input-xlarge', rows: '3' } %>
+              input_html: { class: 'max_width', rows: '3' } %>
   <%= f.input :long_description,
               as: :text, 
               input_html: { class: 'max_width', rows: '10' } %>
 
   <%= render 'markdown_cheatsheet' %>
 
-  <%= f.button :submit, :class => 'btn btn-primary' %>
+  <%= f.button :submit, style: 'margin-left: 180px;', :class => 'btn btn-primary' %>
 
 
 <% end %>

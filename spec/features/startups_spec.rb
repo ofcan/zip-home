@@ -35,6 +35,7 @@ describe 'Startups' do
       fill_in 'startup_name', :with => valid_attributes[:name]
       fill_in 'startup_short_description', :with => valid_attributes[:short_description]
       fill_in 'startup_long_description', :with => valid_attributes[:long_description]
+      attach_file('startup_logo', Rails.root.join('app', 'assets', 'images', 'startups', 'mashme_logo.png'))
       expect {
         click_button 'Create'
       }.to change(Startup, :count).by(1)

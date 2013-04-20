@@ -16,6 +16,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @title = 'New event'
   end
 
   def create
@@ -29,6 +30,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @title = 'Edit event'
   end
 
   def update

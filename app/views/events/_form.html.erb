@@ -1,4 +1,6 @@
-<%= simple_form_for @event do |f| %>
+<legend><h1><%= @title %></h1></legend>
+
+<%= simple_form_for @event, :html => { class: 'form-horizontal' } do |f| %>
 
   <%= f.input :title,
               placeholder: "Super exciting title",
@@ -19,6 +21,6 @@
 
   <%= render 'markdown_cheatsheet' %>
 
-  <%= f.button :submit, :class => 'btn btn-primary' %>
+  <%= f.button :submit, style: 'margin-left: 180px;', :class => 'btn btn-primary' %>
 
 <% end %>

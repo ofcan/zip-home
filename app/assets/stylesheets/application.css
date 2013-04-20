@@ -57,3 +57,8 @@ small {
    width: 150px;
    margin: 0px auto;
 }
+
+/* FORMS */
+.help-block {
+  font-size: 12px;
+}
