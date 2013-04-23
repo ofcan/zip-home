@@ -8,6 +8,18 @@ class StartupshipsController < ApplicationController
     @searched_users = User.search(params[:search])
   end
 
+  def create
+    @startupship = @startup.startupships.build
+    @startupship.startup = @startup
+    @startupship.user = User.find(params[:startupship][:user_id])
+    if @startupship.save
+      redirect_to startup_startupships_path(@startup)
+      flash[:notice] = 'Member added.'
+    else
+      redirect_to startup_startupships_path(@startup)
+      flash[:alert] = 'Member not added.'
+    end
+  end
 
   private
 

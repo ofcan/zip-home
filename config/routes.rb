@@ -10,7 +10,7 @@ ZipHome::Application.routes.draw do
 
   resources :users, :only => [:index, :show]
   resources :startups do
-    resources :startupships, :only => [:index]
+    resources :startupships, :only => [:index, :create]
   end
 
   resources :posts
