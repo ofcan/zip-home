@@ -16,6 +16,19 @@ describe 'Startupships' do
       current_path.should == startup_startupships_path(startupship.startup)
     end
 
+    it 'startups member should be able to add new members' do
+      sign_in_as!(startupship.user)
+      visit startup_startupships_path(startupship.startup)
+      fill_in 'search', :with => user.username
+      click_button 'Search'
+
+      current_path.should == startup_startupships_path(startupship.startup)
+      page.should have_content user.username
+      expect {
+        click_link "create_startupship_with_user_#{user.id}"
+      }.to change(Startupship, :count).by(1)
+    end
+
   end
 
   context 'failure' do

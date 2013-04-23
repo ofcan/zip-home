@@ -5,7 +5,9 @@ class StartupshipsController < ApplicationController
   before_filter :assert_startupship_or_admin
   
   def index
+    @searched_users = User.search(params[:search])
   end
+
 
   private
 

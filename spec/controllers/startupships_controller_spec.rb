@@ -20,6 +20,14 @@ describe StartupshipsController do
       response.should be_success
     end
 
+#    it 'startup member can add new members' do
+#      sign_in(startupship.user)
+#      expect {
+#        post :create, :startup_id => startupship.startup,
+#                      :startupship => { :user_id => user }
+#      }.to change(Startupship, :count).by(1)
+#    end
+
   end
 
   context 'failure' do

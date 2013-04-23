@@ -12,6 +12,9 @@
         <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
                     edit_startup_path(@startup),
                     :id => "edit_startup_#{@startup.id}" %>
+        <%= link_to raw('<i style="color: #999;" class="icon-group"></i>'),
+                    startup_startupships_path(@startup),
+                    :id => 'startup_startupships' %>
         <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
                     startup_path(@startup),
                     :method => :delete,
@@ -26,12 +29,6 @@
     <% @startup.users.each do |user| %>
       <%= image_tag(gravatar_picture(user, 60), :class => 'img-circle') %>
       <%= user.username %>
-    <% end %>
-
-    <% if current_user.try(:admin) || @startup.users.include?(current_user) %>
-      <%= link_to raw('<i style="color: #999;" class="icon-group"></i>'),
-                  startup_startupships_path(@startup),
-                  :id => 'startup_startupships' %>
     <% end %>
 
     <p><%= markdown(@startup.long_description) %></p>

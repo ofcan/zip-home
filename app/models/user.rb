@@ -32,6 +32,12 @@ class User < ActiveRecord::Base
     true if self.role == 'founder' || self.role == 'zip_team_member'
   end
 
+  def self.search(search)
+    if search && search.blank? == false
+      where('username ILIKE ? OR realname ILIKE ?', "%#{search}%", "%#{search}%")
+    end
+  end
+
   private
 
   def role_must_be_from_roles

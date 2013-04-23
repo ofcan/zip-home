@@ -1,5 +1,47 @@
-<h1><%= @startup.name %></h1>
+<h1><%= link_to @startup.name, @startup %></h1>
 
-<% @startup.users.each do |user| %>
-  <%= user.username %>
-<% end %>
+<div class='row'>
+
+  <div class='span6'>
+    <h3>Current Members</h3>
+    <% @startup.users.each do |user| %>
+      <div class='row-fluid'>
+        <div class='span2'>
+          <%= image_tag(gravatar_picture(user, 60), :class => 'img-circle') %>
+        </div>
+        <div class='span10'>
+          <strong><%= user.username %></strong>
+          <br/>
+          <span class='muted'><%= user.realname %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='span6'>
+    <h3>Search for new members</h3>
+    <div class='input-append'>
+      <%= form_tag startup_startupships_path(@startup), :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search,
+                             params[:search],
+                             :class => 'input-large',
+                             :placeholder => 'by username or real name'%>
+          <%= submit_tag 'Search',
+                         :class => 'btn btn-info' %>
+        </p>
+        <!--span class='muted'>Can't find someone to check in? <= link_to 'Invite them to ZIPlaces!', new_location_invitation_path(@location) %></span> -->
+      <% end %>
+    </div>
+
+    <% unless @searched_users == nil %>
+      <% @searched_users.each do |user| %>
+        <%= image_tag(gravatar_picture(user, 60), :class => 'img-circle') %>
+        <%= user.username %>
+        <%= user.realname %>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>
