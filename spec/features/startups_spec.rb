@@ -42,13 +42,6 @@ describe 'Startups' do
       current_path.should == startup_path(Startup.last)
     end
 
-    it 'should get to event edit page from index if user is admin' do
-      sign_in_as!(founder)
-      visit startups_path
-      click_link "edit_startup_#{startup.id}"
-      current_path.should == edit_startup_path(startup)
-    end
-
     it 'founder should get to startup edit page from show' do
       sign_in_as!(founder)
       visit startup_path(startup)
@@ -91,22 +84,6 @@ describe 'Startups' do
       startupship.startup.long_description.should == valid_attributes[:long_description]
       current_path.should == startup_path(startupship.startup)
       page.should have_content 'Startup updated.'
-    end
-
-    it 'founder should delete startup from index' do
-      sign_in_as!(founder)
-      visit startups_path
-      expect {
-        click_link "delete_startup_#{startup.id}"
-      }.to change(Startup, :count).by(-1)
-    end
-
-    it 'startup member should delete startup from index' do
-      sign_in_as!(startupship.user)
-      visit startups_path
-      expect {
-        click_link "delete_startup_#{startupship.startup.id}"
-      }.to change(Startup, :count).by(-1)
     end
 
     it 'founder should delete startup from show' do
