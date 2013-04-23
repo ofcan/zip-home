@@ -92,6 +92,13 @@ describe StartupsController do
       }.to change(Startup, :count).by(-1)
     end
 
+    it 'deleting startup should delete startupships' do
+      sign_in(founder)
+      expect {
+        delete :destroy, :id => startupship.startup
+      }.to change(Startupship, :count).by(-1)
+    end
+
   end
 
   context 'failure' do

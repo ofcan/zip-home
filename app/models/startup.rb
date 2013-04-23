@@ -26,4 +26,15 @@ class Startup < ActiveRecord::Base
   has_attached_file :logo, :styles => { :standard => "300x300>" },
                            :default_url => '/images/startups/:style/missing.png'
 
+  # CALLBACKS
+  after_destroy :remove_startupships
+
+  private
+
+  def remove_startupships
+    self.startupships.each do |startupship|
+      startupship.destroy
+    end
+  end
+
 end
