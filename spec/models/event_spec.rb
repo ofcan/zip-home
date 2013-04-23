@@ -4,46 +4,54 @@ describe Event do
   
   let!(:event) { build :event }
 
-  it 'builds new event' do
-    event.should be_valid
+  context 'success' do
+
+    it 'builds new event' do
+      event.should be_valid
+    end
+
+    it 'responds to proper methods' do
+      event.should respond_to :title
+      event.should respond_to :description
+      event.should respond_to :beginning
+      event.should respond_to :ending
+      event.should respond_to :location
+    end
+
   end
 
-  it 'responds to proper methods' do
-    event.should respond_to :title
-    event.should respond_to :description
-    event.should respond_to :beginning
-    event.should respond_to :ending
-    event.should respond_to :location
-  end
+  context 'failure' do
 
-  it 'doesnt create new event if title is blank' do
-    event.title = ''
-    event.should_not be_valid
-  end
+    it 'doesnt create new event if title is blank' do
+      event.title = ''
+      event.should_not be_valid
+    end
 
-  it 'doesnt create new event if description is blank' do
-    event.description = ''
-    event.should_not be_valid
-  end
+    it 'doesnt create new event if description is blank' do
+      event.description = ''
+      event.should_not be_valid
+    end
 
-  it 'doesnt create new event if beginning is nil' do
-    event.beginning = nil
-    event.should_not be_valid
-  end
+    it 'doesnt create new event if beginning is nil' do
+      event.beginning = nil
+      event.should_not be_valid
+    end
 
-  it 'doesnt create new event if location is nil' do
-    event.location = nil
-    event.should_not be_valid
-  end
+    it 'doesnt create new event if location is nil' do
+      event.location = nil
+      event.should_not be_valid
+    end
 
-  it 'doesnt create new event if ending is before beginning' do
-    event.ending = event.beginning - 1
-    event.should_not be_valid
-  end
+    it 'doesnt create new event if ending is before beginning' do
+      event.ending = event.beginning - 1
+      event.should_not be_valid
+    end
 
-  it 'beginning cannot be in the past' do
-    event.beginning = Time.now - 1
-    event.should_not be_valid
+    it 'beginning cannot be in the past' do
+      event.beginning = Time.now - 1
+      event.should_not be_valid
+    end
+
   end
 
 end

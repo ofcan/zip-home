@@ -16,6 +16,7 @@ describe Startup do
 
     startup.should respond_to :startupships
     startup.should respond_to :users
+    startup.should respond_to :batch
   end
 
   it 'doesnt create new startup if name is blank' do

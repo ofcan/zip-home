@@ -1,7 +1,9 @@
 class Startup < ActiveRecord::Base
   
+  # RELATIONSHIPS
   has_many :startupships
   has_many :users, :through => :startupships
+  belongs_to :batch
 
   # VALIDATIONS
   validates :name, :presence => true,

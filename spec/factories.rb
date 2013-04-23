@@ -49,4 +49,8 @@ FactoryGirl.define do
     startup
   end
 
+  factory :batch do
+    sequence(:title) { |n| "batch_title_#{n}" }
+  end
+
 end

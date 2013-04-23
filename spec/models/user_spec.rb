@@ -23,9 +23,11 @@ describe User do
     user.should respond_to :bio
     user.should respond_to :realname
 
-    user.should respond_to :admin
     user.should respond_to :startups
     user.should respond_to :startupships
+
+    user.should respond_to :admin
+#    user.should respond_to :search
   end
 
   it 'doesnt create new user if username blank' do
@@ -47,6 +49,10 @@ describe User do
   it 'cannot create user with role that is not in User::ROLES' do
     user.role = 'non_existant_role'
     user.should_not be_valid
+  end
+
+  it 'should have search method done right' do
+    pending 'test search properly'
   end
 
 end
