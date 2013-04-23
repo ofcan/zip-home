@@ -22,10 +22,18 @@
     </h1>
 
     <h2><%= @startup.short_description %></h2>
+
     <% @startup.users.each do |user| %>
       <%= image_tag(gravatar_picture(user, 60), :class => 'img-circle') %>
       <%= user.username %>
     <% end %>
+
+    <% if current_user.try(:admin) || @startup.users.include?(current_user) %>
+      <%= link_to raw('<i style="color: #999;" class="icon-group"></i>'),
+                  startup_startupships_path(@startup),
+                  :id => 'startup_startupships' %>
+    <% end %>
+
     <p><%= markdown(@startup.long_description) %></p>
   </div>
 

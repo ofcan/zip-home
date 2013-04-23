@@ -1,0 +1,5 @@
+<h1><%= @startup.name %></h1>
+
+<% @startup.users.each do |user| %>
+  <%= user.username %>
+<% end %>

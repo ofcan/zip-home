@@ -15,6 +15,14 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "You can't do that."
     end
   end
+
+  def assert_startupship_or_admin
+    unless find_startupship(current_user, @startup) || current_user.admin
+      # there is no need for current_user.try(:admin)
+      # because we assert_current_user with another before_filter
+      redirect_to startups_path, alert: "You can't do that."
+    end
+  end
   
   def find_startupship(user, startup)
     user.startupships.find_by_startup_id(startup)
