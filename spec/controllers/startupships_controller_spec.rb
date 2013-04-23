@@ -41,6 +41,26 @@ describe StartupshipsController do
       flash[:notice].should == 'Member added.'
     end
 
+    it 'startup member can remove members' do
+      sign_in(startupship.user)
+      expect {
+        delete :destroy, :startup_id => startupship.startup,
+                         :id => startupship
+      }.to change(Startupship, :count).by(-1)
+      response.should redirect_to startup_startupships_path(startupship.startup)
+      flash[:notice].should == 'Member removed.'
+    end
+
+    it 'admin can remove members' do
+      sign_in(founder)
+      expect {
+        delete :destroy, :startup_id => startupship.startup,
+                         :id => startupship
+      }.to change(Startupship, :count).by(-1)
+      response.should redirect_to startup_startupships_path(startupship.startup)
+      flash[:notice].should == 'Member removed.'
+    end
+
   end
 
   context 'failure' do
@@ -56,6 +76,16 @@ describe StartupshipsController do
       expect {
         post :create, :startup_id => startup,
                       :startupship => { :user_id => user }
+      }.to_not change(Startupship, :count)
+      response.should redirect_to startups_path
+      flash[:alert].should == "You can't do that."
+    end
+
+    it 'basic user cannot add new members' do
+      sign_in(user)
+      expect {
+        delete :destroy, :startup_id => startupship.startup,
+                         :id => startupship
       }.to_not change(Startupship, :count)
       response.should redirect_to startups_path
       flash[:alert].should == "You can't do that."

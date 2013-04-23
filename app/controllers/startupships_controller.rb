@@ -21,6 +21,12 @@ class StartupshipsController < ApplicationController
     end
   end
 
+  def destroy
+    Startupship.find(params[:id]).destroy
+    redirect_to startup_startupships_path(@startup)
+    flash[:notice] = 'Member removed.'
+  end
+
   private
 
   def find_startup
