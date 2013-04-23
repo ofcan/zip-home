@@ -13,6 +13,14 @@
           <strong><%= user.username %></strong>
           <br/>
           <span class='muted'><%= user.realname %></span>
+          <%= link_to raw("<i class='icon-remove pull-right icon-large'></i>"),
+                      { :controller => :startupships,
+                        :action => :destroy,
+                        :startup_id => @startup,
+                        :id => @startup.startupships.find_by_user_id(user.id).id },
+                      :method => :delete,
+                      :confirm => "Are you sure you wish to remove #{user.username} from this startup?",
+                      :id => "remove_startupship_from_user_#{user.id}" %>
         </div>
       </div>
     <% end %>
@@ -36,10 +44,25 @@
 
     <% unless @searched_users == nil %>
       <% @searched_users.each do |user| %>
-        <%= image_tag(gravatar_picture(user, 60), :class => 'img-circle') %>
-        <%= user.username %>
-        <%= user.realname %>
+        <div class='row-fluid'>
+          <div class='span2'>
+            <%= image_tag(gravatar_picture(user, 60), :class => 'img-circle') %>
+          </div>
+          <div class='span10'>
+            <strong><%= user.username %></strong>
+            <br/>
+            <span class='muted'><%= user.realname %></span>
+            <%= link_to raw("<i class='icon-plus pull-right icon-large'></i>"),
+                        { :controller => :startupships,
+                          :action => :create,
+                          :startup_id => @startup,
+                          :startupship => { :user_id => user.id } },
+                        :method => :post,
+                        :id => "create_startupship_with_user_#{user.id}" %>
+          </div>
+        </div>
       <% end %>
+
     <% end %>
 
   </div>
