@@ -12,7 +12,7 @@ class StartupshipsController < ApplicationController
     @startupship = @startup.startupships.build
     @startupship.startup = @startup
     @startupship.user = User.find(params[:startupship][:user_id])
-    if @startupship.save
+    if find_startupship(@startupship.user, @startup) == nil && @startupship.save
       redirect_to startup_startupships_path(@startup)
       flash[:notice] = 'Member added.'
     else

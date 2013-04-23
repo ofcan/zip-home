@@ -73,6 +73,18 @@ describe 'Startupships' do
       page.should have_content 'Member removed.'
     end
 
+    it 'adding existing member to members doesnt create additionas Startupships' do
+      sign_in_as!(startupship.user)
+      visit startup_startupships_path(startupship.startup)
+      fill_in 'search', :with => startupship.user.username
+      click_button 'Search'
+
+      current_path.should == startup_startupships_path(startupship.startup)
+      expect {
+        click_link "create_startupship_with_user_#{startupship.user.id}"
+      }.to_not change(Startupship, :count)
+    end
+
   end
 
   context 'failure' do
