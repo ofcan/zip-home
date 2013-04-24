@@ -8,6 +8,7 @@ class StartupsController < ApplicationController
 
   def index
     @startups = Startup.all
+    @batches = Batch.all
   end
 
   def show

@@ -1,7 +1,19 @@
-<%= link_to 'New Startup',
-            new_startup_path,
-            :id => 'new_startup',
-            :class => 'btn btn-warning' if current_user %>
+<div class='row'>
+  <div class='span12'>
+    <%= link_to raw('<i class="icon-plus"></i> New Startup'),
+                new_startup_path,
+                :id => 'new_startup',
+                :class => 'btn btn-warning' if current_user %>
+    <%= link_to raw('<i class="icon-plus"></i> New Batch'),
+                new_batch_path,
+                :id => 'new_batch',
+                :class => 'btn btn-warning' if current_user.try(:admin) %>
+  </div>
+</div>
+
+<% @batches.each do |batch| %>
+  <h2><%= batch.title %></h2>
+<% end %>
 
 <% @startups.each do |startup| %>
   <div class='startup'>

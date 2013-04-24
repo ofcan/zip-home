@@ -1,7 +1,7 @@
 class Startup < ActiveRecord::Base
   
   # RELATIONSHIPS
-  has_many :startupships
+  has_many :startupships, :dependent => :destroy
   has_many :users, :through => :startupships
   belongs_to :batch
 
@@ -27,16 +27,5 @@ class Startup < ActiveRecord::Base
 
   has_attached_file :logo, :styles => { :standard => "300x300>" },
                            :default_url => '/images/startups/:style/missing.png'
-
-  # CALLBACKS
-  after_destroy :remove_startupships
-
-  private
-
-  def remove_startupships
-    self.startupships.each do |startupship|
-      startupship.destroy
-    end
-  end
 
 end

@@ -6,4 +6,7 @@ class Batch < ActiveRecord::Base
   # VALIDATIONS
   validates_presence_of :title
 
+  # ATTRIBUTES
+  attr_accessible :title
+
 end

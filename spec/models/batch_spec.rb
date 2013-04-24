@@ -12,7 +12,6 @@ describe Batch do
 
     it 'responds to proper methods' do
       batch.should respond_to(:title)
-
       batch.should respond_to(:startups)
     end
 
