@@ -53,4 +53,9 @@ FactoryGirl.define do
     sequence(:title) { |n| "batch_title_#{n}" }
   end
 
+  factory :batch_startup_join do
+    batch
+    startup
+  end
+
 end

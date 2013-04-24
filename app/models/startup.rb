@@ -3,7 +3,9 @@ class Startup < ActiveRecord::Base
   # RELATIONSHIPS
   has_many :startupships, :dependent => :destroy
   has_many :users, :through => :startupships
-  belongs_to :batch
+
+  has_many :batch_startup_joins
+  has_many :batches, :through => :batch_startup_joins
 
   # VALIDATIONS
   validates :name, :presence => true,

@@ -11,8 +11,10 @@ describe Batch do
     end
 
     it 'responds to proper methods' do
-      batch.should respond_to(:title)
-      batch.should respond_to(:startups)
+      batch.should respond_to :title
+
+      batch.should respond_to :batch_startup_joins
+      batch.should respond_to :startups
     end
 
   end
