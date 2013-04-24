@@ -15,7 +15,7 @@ ZipHome::Application.routes.draw do
 
   resources :posts
   resources :events
-  resources :batches, :only => [:new, :index, :create, :edit, :show]
+  resources :batches
   # there is :index action for batch resource because form by default
   # sends to create/update action wich is referred as 
   # put/post request to batches_path

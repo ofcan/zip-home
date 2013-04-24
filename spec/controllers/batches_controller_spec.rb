@@ -9,7 +9,6 @@ describe BatchesController do
   context 'success' do
 
     it 'should get to show page' do
-      sign_in(founder)
       get 'show', :id => batch
       response.should be_success
     end
@@ -32,6 +31,24 @@ describe BatchesController do
       sign_in(founder)
       get :edit, :id => batch
       response.should be_success
+    end
+
+    it 'should update batch' do
+      sign_in(founder)
+      put :update, :id => batch, :batch => valid_attributes
+      batch.reload
+      batch.title.should == valid_attributes[:title]
+      response.should redirect_to batch_path(batch)
+      flash[:notice].should == 'Batch updated.'
+    end
+
+    it 'should delete a batch' do
+      sign_in(founder)
+      expect {
+        delete :destroy, :id => batch
+      }.to change(Batch, :count).by(-1)
+      response.should redirect_to startups_path
+      flash[:notice].should == 'Batch destroyed.'
     end
 
   end

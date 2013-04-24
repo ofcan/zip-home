@@ -40,6 +40,26 @@ describe 'Batches' do
       current_path.should == edit_batch_path(batch)
     end
 
+    it 'should update batch' do
+      sign_in_as!(founder)
+      visit edit_batch_path(batch)
+      fill_in 'batch_title', :with => valid_attributes[:title]
+      click_button 'Update'
+      batch.reload
+      batch.title.should == valid_attributes[:title]
+      current_path.should == batch_path(batch)
+      page.should have_content 'Batch updated.'
+    end
+
+    it 'should delete batch from show' do
+      sign_in_as!(founder)
+      visit batch_path(batch)
+      expect {
+        click_link "delete_batch_#{batch.id}"
+      }.to change(Batch, :count).by(-1)
+      
+    end
+
   end
 
   context 'failure' do
