@@ -22,6 +22,12 @@ describe BatchesController do
       response.should redirect_to startups_path
     end
 
+    it 'should get edit page' do
+      sign_in(founder)
+      get :edit, :id => batch
+      response.should be_success
+    end
+
   end
 
   context 'failure' do

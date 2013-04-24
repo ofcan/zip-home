@@ -16,4 +16,8 @@ class BatchesController < ApplicationController
     end
   end
 
+  def edit
+    @batch = Batch.find(params[:id])
+  end
+
 end

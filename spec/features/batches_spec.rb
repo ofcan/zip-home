@@ -26,6 +26,13 @@ describe 'Batches' do
       current_path.should == startups_path
     end
 
+    it 'should get to edit from startups index' do
+      sign_in_as!(founder)
+      visit startups_path
+      click_link "edit_batch_#{batch.id}"
+      current_path.should == edit_batch_path(batch)
+    end
+
   end
 
   context 'failure' do
