@@ -8,6 +8,12 @@ describe BatchesController do
 
   context 'success' do
 
+    it 'should get to show page' do
+      sign_in(founder)
+      get 'show', :id => batch
+      response.should be_success
+    end
+
     it 'should get to new page' do
       sign_in(founder)
       get 'new'

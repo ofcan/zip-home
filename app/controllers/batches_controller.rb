@@ -1,6 +1,10 @@
 class BatchesController < ApplicationController
   
   before_filter :assert_admin
+  before_filter :find_batch, :only => [:edit, :show]
+
+  def show
+  end
 
   def new
     @batch = Batch.new
@@ -17,6 +21,11 @@ class BatchesController < ApplicationController
   end
 
   def edit
+  end
+
+  private
+
+  def find_batch
     @batch = Batch.find(params[:id])
   end
 

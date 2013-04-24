@@ -9,6 +9,13 @@ describe 'Batches' do
 
   context 'success' do
 
+    it 'should get to show from startups index' do
+      sign_in_as!(founder)
+      visit startups_path
+      click_link batch.title
+      current_path.should == batch_path(batch)
+    end
+
     it 'should get to new from startups index' do
       sign_in_as!(founder)
       visit startups_path
@@ -26,9 +33,9 @@ describe 'Batches' do
       current_path.should == startups_path
     end
 
-    it 'should get to edit from startups index' do
+    it 'should get to edit from show' do
       sign_in_as!(founder)
-      visit startups_path
+      visit batch_path(batch)
       click_link "edit_batch_#{batch.id}"
       current_path.should == edit_batch_path(batch)
     end

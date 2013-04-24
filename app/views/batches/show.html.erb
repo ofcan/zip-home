@@ -1,0 +1,8 @@
+<h1>
+  <%= @batch.title %>
+  <% if current_user.try(:admin) %>
+    <%= link_to raw("<i class='icon-edit'></i>"),
+                edit_batch_path(@batch),
+                :id => "edit_batch_#{@batch.id}" %>
+  <% end %>
+</h1>

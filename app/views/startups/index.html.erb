@@ -15,18 +15,11 @@
   <% @batches.each do |batch| %>
     <% if batch.startups.count == 0 %>
       <div style='text-align: center;' class='well'>
-        <h2>
-          <%= batch.title %>
-          <% if current_user.try(:admin) %>
-            <%= link_to raw("<i class='icon-edit'></i>"),
-                        edit_batch_path(batch),
-                        :id => "edit_batch_#{batch.id}" %>
-          <% end %>
-        </h2>
+        <h2><%= link_to batch.title, batch %></h2>
         Coming soon!
       </div>
     <% else %>
-      <h2><%= batch.title %></h2>
+      <h2><%= link_to batch.title, batch %></h2>
     <% end %>
   <% end %>
 </div>
