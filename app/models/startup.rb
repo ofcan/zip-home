@@ -30,4 +30,12 @@ class Startup < ActiveRecord::Base
   has_attached_file :logo, :styles => { :standard => "300x300>" },
                            :default_url => '/images/startups/:style/missing.png'
 
+  # METHODS ---------------------------------------------------
+
+  def self.search(search)
+    if search && search.blank? == false
+      where('name ILIKE ? ', "%#{search}%")
+    end
+  end
+
 end

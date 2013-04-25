@@ -6,6 +6,7 @@ describe 'Batches' do
   let!(:founder) { create :founder }
   let!(:user) { create :user }
   let!(:valid_attributes) { attributes_for :batch }
+  let!(:startup) { create :startup }
 
   context 'success' do
 
@@ -57,7 +58,15 @@ describe 'Batches' do
       expect {
         click_link "delete_batch_#{batch.id}"
       }.to change(Batch, :count).by(-1)
-      
+    end
+
+    it 'should be able to search for startups on edit page' do
+      sign_in_as!(founder)
+      visit edit_batch_path(batch)
+      fill_in 'search', :with => startup.name
+      click_button 'Search'
+      page.should have_content startup.name
+      page.should have_content startup.short_description
     end
 
   end

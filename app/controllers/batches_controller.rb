@@ -2,7 +2,7 @@ class BatchesController < ApplicationController
   
   before_filter :assert_current_user, :except => :show
   before_filter :assert_admin, :except => :show
-  before_filter :find_batch, :only => [:edit, :show, :update, :destroy]
+  before_filter :find_batch, :only => [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -22,6 +22,7 @@ class BatchesController < ApplicationController
   end
 
   def edit
+    @searched_startups = Startup.search(params[:search])
   end
 
   def update

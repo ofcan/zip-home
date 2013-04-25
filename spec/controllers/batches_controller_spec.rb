@@ -42,10 +42,12 @@ describe BatchesController do
       flash[:notice].should == 'Batch updated.'
     end
 
+    # REFACTOR
     it 'should delete a batch' do
       sign_in(founder)
+      post :create, :batch => valid_attributes
       expect {
-        delete :destroy, :id => batch
+        delete :destroy, :id => Batch.last
       }.to change(Batch, :count).by(-1)
       response.should redirect_to startups_path
       flash[:notice].should == 'Batch destroyed.'

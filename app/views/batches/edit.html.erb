@@ -1,2 +1,52 @@
-<h1>Edit Batch</h1>
-<%= render 'form' %>
+<div class='row'>
+
+  <div class='span6'>
+    <h1>Edit Batch</h1>
+    <%= render 'form' %>
+    <% unless @batch.startups.count == 0 %>
+      <% @batch.startups.each do |startup| %>
+        <div class='row-fluid'>
+          <div class='span2'>
+            <%= image_tag startup.logo.url(:standard) %>
+          </div>
+          <div class='span10'>
+            <%= startup.name %>
+            <br/>
+            <small><%= startup.short_description %></small>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='span6'>
+    <h3>Search for new startups</h3>
+    <div class='input-append'>
+      <%= form_tag edit_batch_path(@batch), :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search,
+                             params[:search],
+                             :class => 'input-large',
+                             :placeholder => 'by startup name'%>
+          <%= submit_tag 'Search',
+                         :class => 'btn btn-info' %>
+        </p>
+      <% end %>
+    </div>
+    <% unless @searched_startups == nil %>
+      <% @searched_startups.each do |startup| %>
+        <div class='row-fluid'>
+          <div class='span2'>
+            <%= image_tag startup.logo.url(:standard) %>
+          </div>
+          <div class='span10'>
+            <%= startup.name %>
+            <br/>
+            <small><%= startup.short_description %></small>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
