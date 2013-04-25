@@ -1,0 +1,8 @@
+<div class='user_badge'>
+  <%= image_tag(gravatar_picture(user, 100), :class => 'img-circle') %>
+  <p>
+    <strong><%= link_to user.username, user, :id => "user_#{user.id}" %></strong>
+    <br/>
+    <%= user.realname %>
+  </p>
+</div>

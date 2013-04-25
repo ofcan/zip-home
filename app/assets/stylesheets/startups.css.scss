@@ -2,18 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.startup {
+.startup_badge {
   text-align: center;
   width: 200px;
   float: left;
   margin: 10px;
+  max-height: 300px;
 }
 
-.startup_image {
+.startup_badge img {
   height: 200px;
   max-height: 200px;
-}
-
-.startup_text {
-  height: 110px;
 }
