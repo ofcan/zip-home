@@ -1,0 +1,51 @@
+<div id='testimonials'>
+  <div class='container'>
+
+    <div id="testimonials_carousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#testimonials_carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#testimonials_carousel" data-slide-to="1"></li>
+        <li data-target="#testimonials_carousel" data-slide-to="2"></li>
+        <li data-target="#testimonials_carousel" data-slide-to="3"></li>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+
+        <div class="active item">
+          <div class='row-fluid'>
+            <div class='span1'>
+            </div>
+            <div class='span7'>
+              <h1>"Get back to work!"</h1>
+              <p>Sasa Cvetojevic</p>
+            </div>
+            <div class='span3'>
+              <%= image_tag asset_path 'people/sasa_cvetojevic.jpg', :class => 'img-circle' %>
+            </div>
+            <div class='span1'></div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class='row-fluid'>
+            <div class='span1'>
+            </div>
+            <div class='span7'>
+              <h1>"Work atmosphere is really positive and inspiring!"</h1>
+              <p>Darian Skarica</p>
+            </div>
+            <div class='span3'>
+              <%= image_tag asset_path 'people/ivo_spigel.jpg', :class => 'img-circle' %>
+            </div>
+            <div class='span1'></div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#testimonials_carousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#testimonials_carousel" data-slide="next">&rsaquo;</a>
+    </div>
+
+  </div>
+</div>

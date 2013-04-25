@@ -4,3 +4,6 @@
 
 $ ->
   $("#myCarousel").carousel interval: 5000
+
+$ ->
+  $("#testimonials_carousel").carousel interval: 5000

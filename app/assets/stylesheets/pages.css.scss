@@ -39,10 +39,19 @@ table caption {
 }
 
 .partner_badge {
-  height: 200px;
+  height: 150px;
 }
 
 .partner_badge img {
   margin: 20px 0;
   max-height: 100px;
+}
+
+/* WIDGETS */
+#testimonials {
+  margin: 80px 0px;
+}
+
+#testimonials img {
+  max-height: 180px;
 }
