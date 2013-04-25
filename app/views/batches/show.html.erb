@@ -1,7 +1,7 @@
-<h1>
+<h1 class='text-center'>
   <%= @batch.title %>
   <% if current_user.try(:admin) %>
-    <%= link_to raw("<i style='color: #999;' class='icon-edit'></i>"),
+    <%= link_to raw("<i style='font-size: 14px; color: #999;' class='icon-edit'></i>"),
                 edit_batch_path(@batch),
                 :id => "edit_batch_#{@batch.id}" %>
       <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
@@ -11,3 +11,10 @@
                   :id => "delete_batch_#{@batch.id}" %>
   <% end %>
 </h1>
+
+<hr/>
+
+<% @batch.startups.each do |startup| %>
+  <%= render :partial => 'startups/startup_badge',
+             :locals => { :startup => startup } %>
+<% end %>

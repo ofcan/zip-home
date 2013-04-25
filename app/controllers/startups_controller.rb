@@ -8,7 +8,7 @@ class StartupsController < ApplicationController
 
   def index
     @startups = Startup.all
-    @batches = Batch.all
+    @batches = Batch.all.sort_by(&:created_at).reverse
   end
 
   def show
