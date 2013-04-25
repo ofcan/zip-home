@@ -1,27 +1,49 @@
 <div style='clear: both;'>
-  <h1>Founders</h1>
+  <div class='text-center'>
+    <h1>Founders</h1>
+    <p>People who made the whole thing possible...</p>
+  </div>
   <% @founders.each do |user| %>
     <%= render :partial => 'user_badge', :locals => { :user => user } %>
   <% end %>
 </div>
 
 <div style='clear: both;'>
-  <h1>Advisory Board</h1>
+  <div class='text-center'>
+    <h1>Advisory Board</h1>
+    <p>Pretty awesome list of advisors, don't you think?</p>
+  </div>
   <% @advisors.each do |user| %>
     <%= render :partial => 'user_badge', :locals => { :user => user } %>
   <% end %>
 </div>
 
 <div style='clear: both;'>
-  <h1>Mentors</h1>
+  <div class='text-center'>
+    <h1>Mentors</h1>
+    <p>Populary referred to as 'de-mentors'</p>
+  </div>
   <% @mentors.each do |user| %>
     <%= render :partial => 'user_badge', :locals => { :user => user } %>
   <% end %>
 </div>
 
 <div style='clear: both;'>
-  <h1>ZIP team members</h1>
+  <div class='text-center'>
+    <h1>ZIP team members</h1>
+    <p>Santas little helpers</p>
+  </div>
   <% @team_members.each do |user| %>
+    <%= render :partial => 'user_badge', :locals => { :user => user } %>
+  <% end %>
+</div>
+
+<div style='clear: both;'>
+  <div class='text-center'>
+    <h1>ZIP community</h1>
+    <p>Awesome people who make ZIP what it is</p>
+  </div>
+  <% @basic_users.each do |user| %>
     <%= render :partial => 'user_badge', :locals => { :user => user } %>
   <% end %>
 </div>
