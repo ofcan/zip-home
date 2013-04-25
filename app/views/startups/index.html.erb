@@ -29,7 +29,9 @@
         <% end %>
       </h2>
       <p>Applications are open!</p>
-      <%= link_to 'Apply here', '#', :class => 'btn btn-success' %>
+      <%= link_to 'Apply here',
+                  apply_path,
+                  :class => 'btn btn-success' %>
       </div>
     <% else %>
       <div class='clearfix'>
