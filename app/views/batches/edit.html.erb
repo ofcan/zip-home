@@ -13,6 +13,14 @@
             <%= startup.name %>
             <br/>
             <small><%= startup.short_description %></small>
+            <%= link_to raw("<i class='icon-remove pull-right icon-large'></i>"),
+                        { :controller => :batch_startup_joins,
+                          :action => :destroy,
+                          :batch_id => @batch,
+                          :id => @batch.batch_startup_joins.find_by_startup_id(startup.id).id },
+                        :method => :delete,
+                        :confirm => "Are you sure you wish to remove #{startup.name} from this batch?",
+                        :id => "remove_batch_startup_join_from_startup_#{startup.id}" %>
           </div>
         </div>
       <% end %>

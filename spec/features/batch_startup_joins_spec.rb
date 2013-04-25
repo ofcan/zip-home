@@ -24,6 +24,14 @@ describe 'BatchStartupJoins' do
       BatchStartupJoin.last.batch.should == batch
       BatchStartupJoin.last.startup.should == startup
     end
+
+    it 'founder can remove startups from batch' do
+      sign_in_as!(founder)
+      visit edit_batch_path(batch_startup_join.batch)
+      expect {
+        click_link "remove_batch_startup_join_from_startup_#{batch_startup_join.startup.id}"
+      }.to change(BatchStartupJoin, :count).by(-1)
+    end
   end
 
   context 'failure' do
