@@ -15,6 +15,11 @@ class BatchStartupJoinsController < ApplicationController
     end
   end
 
+  def destroy
+    BatchStartupJoin.find(params[:id]).destroy
+    redirect_to edit_batch_path(@batch), notice: 'Startup removed.'
+  end
+
   private
 
   def find_batch

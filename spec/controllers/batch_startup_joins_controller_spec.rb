@@ -21,6 +21,16 @@ describe BatchStartupJoinsController do
       flash[:notice].should == 'Startup added.'
     end
 
+    it 'founder should delete batch_startup_join' do
+      sign_in(founder)
+      expect {
+        delete :destroy, :batch_id => batch_startup_join.batch,
+                         :id => batch_startup_join
+      }.to change(BatchStartupJoin, :count).by(-1)
+      response.should redirect_to edit_batch_path(batch_startup_join.batch)
+      flash[:notice].should == 'Startup removed.'
+    end
+
   end
 
   context 'failure' do
