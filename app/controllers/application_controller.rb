@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def assert_admin
     unless current_user.try(:admin)
-      redirect_to posts_path
+      redirect_to root_path
       flash[:alert] = "You can't do that."
     end
   end
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     unless find_startupship(current_user, @startup) || current_user.admin
       # there is no need for current_user.try(:admin)
       # because we assert_current_user with another before_filter
-      redirect_to startups_path, alert: "You can't do that."
+      redirect_to root_path, alert: "You can't do that."
     end
   end
   

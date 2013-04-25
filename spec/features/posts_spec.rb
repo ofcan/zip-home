@@ -105,7 +105,7 @@ describe "Posts" do
     it 'should not get to new post from posts index if user not founder' do
       sign_in_as!(user)
       visit new_post_path
-      current_path.should == posts_path
+      current_path.should == root_path
       page.should have_content "You can't do that."
     end
 

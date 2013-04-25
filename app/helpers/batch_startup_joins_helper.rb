@@ -1,0 +1,2 @@
+module BatchStartupJoinsHelper
+end

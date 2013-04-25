@@ -77,7 +77,7 @@ describe StartupshipsController do
         post :create, :startup_id => startup,
                       :startupship => { :user_id => user }
       }.to_not change(Startupship, :count)
-      response.should redirect_to startups_path
+      response.should redirect_to root_path
       flash[:alert].should == "You can't do that."
     end
 
@@ -87,7 +87,7 @@ describe StartupshipsController do
         delete :destroy, :startup_id => startupship.startup,
                          :id => startupship
       }.to_not change(Startupship, :count)
-      response.should redirect_to startups_path
+      response.should redirect_to root_path
       flash[:alert].should == "You can't do that."
     end
 
