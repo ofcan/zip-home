@@ -18,4 +18,7 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def apply
+  end
+
 end

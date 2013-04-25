@@ -7,6 +7,7 @@ ZipHome::Application.routes.draw do
   match 'partners', :to => 'pages#partners'
   match 'coworking', :to => 'pages#coworking'
   match 'contact', :to => 'pages#contact'
+  match 'apply', :to => 'pages#apply'
 
   resources :users, :only => [:index, :show]
   resources :startups do

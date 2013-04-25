@@ -34,6 +34,12 @@ describe "Navigation" do
       current_path.should == contact_path
     end
 
+    it 'should get to apply page from home page' do
+      visit root_path
+      click_link 'Apply'
+      current_path.should == apply_path
+    end
+
   end
 
 end

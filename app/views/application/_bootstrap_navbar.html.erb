@@ -35,8 +35,8 @@
           <li class="<%= 'active' if current_page? contact_path %>">
             <%= link_to "Contact", contact_path %>
           </li>
-          <li>
-            <div><%= link_to "Apply", '#', :class => 'btn btn-warning' %></div>
+          <li class="<%= 'active' if current_page? apply_path %>">
+            <%= link_to "Apply", apply_path %>
           </li>
 
           <% if user_signed_in? %>

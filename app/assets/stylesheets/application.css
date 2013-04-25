@@ -45,6 +45,11 @@ small {
   margin-top: 40px;
 }
 
+.crud_icon {
+  font-size: 20px;
+  color: #999;
+}
+
 .schematic_icons .span4 {
   text-align: center;
 }

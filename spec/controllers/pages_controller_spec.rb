@@ -22,4 +22,9 @@ describe PagesController do
     response.should be_success
   end
 
+  it 'can visit apply page' do
+    get 'apply'
+    response.should be_success
+  end
+
 end

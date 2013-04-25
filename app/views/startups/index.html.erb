@@ -15,12 +15,37 @@
   <% @batches.each do |batch| %>
     <% if batch.startups.count == 0 %>
       <div style='text-align: center;' class='well'>
-        <h2><%= link_to batch.title, batch %></h2>
-        Coming soon!
+      <h2>
+        <%= link_to batch.title, batch %>
+        <% if current_user.try(:admin) %>
+          <%= link_to raw("<i class='icon-edit crud_icon'></i>"),
+                      edit_batch_path(batch),
+                      :id => "edit_batch_#{batch.id}" %>
+            <%= link_to raw('<i class="icon-remove crud_icon"></i>'),
+                        batch_path(batch),
+                        :method => :delete,
+                        :confirm => "Are you sure you wish to delete entire '#{batch.title}' batch ?",
+                        :id => "delete_batch_#{batch.id}" %>
+        <% end %>
+      </h2>
+      <p>Applications are open!</p>
+      <%= link_to 'Apply here', '#', :class => 'btn btn-success' %>
       </div>
     <% else %>
       <div class='clearfix'>
-        <h2 style='text-align: center'><%= link_to batch.title, batch %></h2>
+        <h2 class='text-center'>
+          <%= link_to batch.title, batch %>
+          <% if current_user.try(:admin) %>
+            <%= link_to raw("<i class='icon-edit crud_icon'></i>"),
+                        edit_batch_path(batch),
+                        :id => "edit_batch_#{batch.id}" %>
+              <%= link_to raw('<i class="icon-remove crud_icon"></i>'),
+                          batch_path(batch),
+                          :method => :delete,
+                          :confirm => "Are you sure you wish to delete entire '#{batch.title}' batch ?",
+                          :id => "delete_batch_#{batch.id}" %>
+          <% end %>
+        </h2>
         <hr/>
         <% batch.startups.each do |startup| %>
           <%= render :partial => 'startups/startup_badge',
