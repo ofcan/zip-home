@@ -30,6 +30,11 @@ small {
   background-color: #252627;
 }
 
+/* CLASSES */
+.post h2 {
+  margin-bottom: -2px;
+}
+
 /* CAROUSEL */
 #startups_carousel {
   margin: 40px 0;
@@ -46,8 +51,8 @@ small {
 }
 
 .crud_icon {
-  font-size: 20px;
   color: #999;
+  margin-left: 4px;
 }
 
 .schematic_icons .span4 {

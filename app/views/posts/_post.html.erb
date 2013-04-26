@@ -3,10 +3,10 @@
   <small>
     by <%= post.user.username %> on <%= time_tag(post.created_at, :format => '%B %d, %Y') %>
     <% if current_user.try(:admin) %>
-      <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
+      <%= link_to raw('<i class="icon-edit crud_icon"></i>'),
                   edit_post_path(post),
                   :id => "edit_post_#{post.id}" %>
-      <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
+      <%= link_to raw('<i class="icon-remove crud_icon"></i>'),
                   post_path(post),
                   :method => :delete,
                   :confirm => "Are you sure you wish to delete post '#{post.title}' ?",
@@ -18,8 +18,9 @@
       <%= image_tag post.featured_image.url(:thumbnail) %>
     </div>
     <div class='span8'>
-      <p><%= markdown(remove_images(truncate_by_paragraph(post.body))) %></p>
+      <%= markdown(remove_images(truncate_by_paragraph(post.body))) %>
       <p class='text-right'><%= link_to raw('read more <i class="icon-circle-arrow-right"></i>'), post %></p>
     </div>
   </div>
+  <hr/>
 </div>
