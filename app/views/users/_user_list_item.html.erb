@@ -1,0 +1,14 @@
+<div style='margin: 20px 0px;' class='user_list_item'>
+  <div class='row-fluid'>
+    <div class='span3'>
+      <%= image_tag(gravatar_picture(user, 60), :class => 'img-circle') %>
+    </div>
+    <div class='span9'>
+      <strong><%= user.username %></strong>
+      <br/>
+      <%= user.realname %>
+      <br/>
+      <span class='muted'><%= user.role.humanize %></span>
+    </div>
+  </div>
+</div>

@@ -55,7 +55,7 @@ small {
   margin-left: 4px;
 }
 
-.schematic_icons .span4 {
+.schematic_icons .span3 {
   text-align: center;
 }
 
@@ -64,7 +64,7 @@ small {
    color: #9bc957;
    background-color: #444;
    border-radius: 50%;
-   width: 150px;
+   width: 120px;
    margin: 0px auto;
 }
 

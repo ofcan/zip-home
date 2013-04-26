@@ -1,3 +1,5 @@
+<h3>Admins:</h3>
+
 <% User.where(role: ['founder', 'zip_team_member']).each do |admin| %>
-  <%= image_tag(gravatar_picture(admin, 60), :class => 'img-circle') %>
+  <%= render :partial => 'users/user_list_item', :locals => { :user => admin } %>
 <% end %>
