@@ -1,28 +1,38 @@
 <% content_for :mainbar do %>
   <%= link_to raw("<i class='icon-arrow-left'></i> back to all events"), events_path %>
-  <h1><%= @event.title %></h1>
-  <p>
-    <%= time_tag(@event.beginning, :format => '%B %d, %Y') %>
-    ( <%= distance_of_time_in_words(Time.now, @event.beginning) %> from now )
-    @ <%= @event.location %>
-  </p>
-
-  <small>
-    <% if current_user.try(:admin) %>
-      <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
-                  edit_event_path(@event),
-                  :id => "edit_event_#{@event.id}" %>
-      <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
-                  event_path(@event),
-                  :method => :delete,
-                  :confirm => "Are you sure you wish to delete event '#{@event.title}' ?",
-                  :id => "delete_event_#{@event.id}" %>
-    <% end %>
-  </small>
+  <h1 style='margin-bottom: 0px;'>
+    <%= @event.title %>
+    <small>
+      <% if current_user.try(:admin) %>
+        <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
+                    edit_event_path(@event),
+                    :id => "edit_event_#{@event.id}" %>
+        <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
+                    event_path(@event),
+                    :method => :delete,
+                    :confirm => "Are you sure you wish to delete event '#{@event.title}' ?",
+                    :id => "delete_event_#{@event.id}" %>
+      <% end %>
+    </small>
+  </h1>
+  <div style='color: #888' class='row-fluid'>
+    <div class='span5'>
+      <h3><i class='icon-calendar'></i> <%= time_tag(@event.beginning, :format => '%B %d, %Y') %></h3>
+    </div>
+    <div class='span3'>
+      <h3><i class='icon-time'></i> <%= time_tag(@event.beginning, :format => '%H:%M') %></h3>
+    </div>
+    <div class='span4'>
+      <h3><i class='icon-map-marker'></i> <%= @event.location %></h3>
+    </div>
+  </div>
 
   <%= image_tag @event.featured_image.url(:large) %>
 
-  <%= markdown(@event.description) %>
+  <p>
+    <%= markdown(@event.description) %>
+  </p>
+
 <% end %>
 
 <% content_for :sidebar do %>

@@ -1,7 +1,7 @@
 <% content_for :mainbar do %>
   <% if @today_events.count != 0 %>
     <div class='well'>
-      <h1><%= pluralize(@today_events.count, "today's event") %></h1>
+      <h3 style='margin-bottom: -14px;'><%= pluralize(@today_events.count, "today's event") %></h3>
       <% @today_events.each do |today_event| %>
         <%= render :partial => 'event', :locals => { :event => today_event } %>
       <% end %>
@@ -9,14 +9,14 @@
   <% end %>
 
   <% if @upcoming_events.count != 0 %>
-    <h1><%= pluralize(@upcoming_events.count, "upcoming event") %></h1>
+    <h3 style='margin-bottom: -14px;'><%= pluralize(@upcoming_events.count, "upcoming event") %></h3>
     <% @upcoming_events.each do |upcoming_event| %>
       <%= render :partial => 'event', :locals => { :event => upcoming_event } %>
     <% end %>
   <% end %>
 
   <% if @past_events.count != 0 %>
-    <h1>Past events</h1>
+    <h3>Past events</h3>
     <% @past_events.each do |past_event| %>
       <%= render :partial => 'event', :locals => { :event => past_event } %>
     <% end %>

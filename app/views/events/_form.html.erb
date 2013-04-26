@@ -16,7 +16,7 @@
               placeholder: 'ZIP.Events' %>
 
   <%= f.input :featured_image, hint: 'ProTIP: provide landscape pictures (600x360) for best effect' do %>
-    <%= image_tag @event.featured_image.url(:standard), :class => 'img-polaroid', :style => 'margin-bottom: 8px;' %>
+    <%= image_tag @event.featured_image.url(:large), :class => 'img-polaroid', :style => 'margin-bottom: 8px;' %>
     <br/>
     <%= f.file_field :featured_image %>
   <% end %>
