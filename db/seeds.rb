@@ -17,6 +17,9 @@ user_4 = User.create( username: 'lukaabrus',
                       email: 'luka@example.com',
                       password: 'supersecret',
                       role: 'mentor')
+user_5 = User.create( username: 'joe',
+                      email: 'joe@example.com',
+                      password: 'supersecret')
 
 # Startups
 startup_1 = Startup.create( name: 'GitArchitect',
@@ -33,9 +36,19 @@ startupship_1 = Startupship.create( user: user_1,
 startupship_2 = Startupship.create( user: user_4,
                                     startup: startup_2)
 
+# Batches
+batch_1 = Batch.create( title: 'ZIP Winter 2012' )
+batch_1.startups << startup_1
+
+batch_2 = Batch.create( title: 'ZIP Spring 2013' )
+batch_2.startups << startup_2
+
+batch_3 = Batch.create( title: 'ZIP Summer 2013' )
+
 # Posts
 post_1 = Post.new
 post_1.title = 'Proslava useljenja novih ZIP startupa!'
+post_1.featured_image = File.open(Rails.root.join('app', 'assets', 'images', 'posts', 'daft_punk.jpg'))
 post_1.body = "
   Last week in [I_MM Lab in Zagreb](http://immmedialab.wordpress.com/), a group of awesome [Biotweakers](https://www.facebook.com/Biotweaking?fref=ts) and I played with strawberry DNA. **How awesome is that!? :)**
 
@@ -66,6 +79,7 @@ post_1.user = user_1
 post_1.save
 
 post_2 = Post.new
+post_2.featured_image = File.open(Rails.root.join('app', 'assets', 'images', 'posts', 'microryza.png'))
 post_2.title = 'ZIP DrinkUp with the Startup Sauna crew @ The Movie Pub'
 post_2.body = "
 I have been trying to find the workflow common denominator derived from various projects I've done lately. Despite being scaterred across different fields (writing, design, programming, architecture) I've noticed very similar patterns in all of them. Some things always worked, and some always didn't.  Here's what I found out.
@@ -110,6 +124,7 @@ post_2.save
 
 post_3 = Post.new
 post_3.title = 'Differenca tra me e te'
+post_3.featured_image = File.open(Rails.root.join('app', 'assets', 'images', 'posts', 'daft_punk.jpg'))
 post_3.body = "
 What separates a good artist from a better one? There are a lot of people who are good at what they do, but only a few who are the best. What makes them stand out? What makes a painter, a baker, a programmer, an athlete the best?
 
@@ -130,6 +145,7 @@ post_3.save
 
 post_4 = Post.new
 post_4.title = 'La transizzia'
+post_4.featured_image = File.open(Rails.root.join('app', 'assets', 'images', 'posts', 'microryza.png'))
 post_4.body = "
 10 weeks ago I was just your typical cookie-cutter architecture student; 11 exams behind bachelors; having nothing tangible to show for all the hard work I've done in the past few months. Not a fun place to be...
 
