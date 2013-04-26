@@ -1,7 +1,14 @@
 <h3>Upcoming events <i class='icon-calendar'></i></h3>
 
 <% Event.upcoming.last(3).each do |upcoming_event| %>
-  <h3><%= link_to upcoming_event.title, upcoming_event %></h3>
-  <p><%= markdown(truncate (upcoming_event.description), length: 125) %></p>
+  <div class='row-fluid'>
+    <div class='text-center span5' style='background-color: #ccc; margin-bottom: 10px;'>
+      <h3 style='color: #fff; margin-bottom: 0px;'><%= upcoming_event.beginning.strftime('%d/%m/%y') %></h3>
+    </div>
+    <div class='span7'>
+      <h4 style='margin-bottom: 0px;'><%= link_to upcoming_event.title, upcoming_event %></h4>
+      <p><i class='icon-map-marker' ></i> <%= upcoming_event.location %></p>
+    </div>
+  </div>
 <% end %>
 
