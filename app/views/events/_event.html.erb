@@ -1,0 +1,30 @@
+<h2>
+  <%= link_to event.title, event %>
+  <small>
+    <% if current_user.try(:admin) %>
+      <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
+                  edit_event_path(event),
+                  :id => "edit_event_#{event.id}" %>
+      <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
+                  event_path(event),
+                  :method => :delete,
+                  :confirm => "Are you sure you wish to delete event '#{event.title}' ?",
+                  :id => "delete_event_#{event.id}" %>
+    <% end %>
+  </small>
+</h2>
+
+<div class='row-fluid'>
+  <div class='text-center span4' style='color: #fff; background-color: #bbb; margin-bottom: 10px;'>
+    <p>
+      <h2><%= event.beginning.strftime('%d/%m/%y') %></h2>
+      <h4><i class='icon-map-marker'></i> <%= event.location %></h4>
+    </p>
+
+  </div>
+
+  <div class='span8'>
+    <%= markdown(truncate(remove_images(truncate_by_paragraph(event.description)), :length => 230)) %>
+    <p class='text-right'><%= link_to raw('read more <i class="icon-circle-arrow-right"></i>'), event %></p>
+  </div>
+</div>

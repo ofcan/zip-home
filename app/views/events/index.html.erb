@@ -3,26 +3,7 @@
     <div class='well'>
       <h1><%= pluralize(@today_events.count, "today's event") %></h1>
       <% @today_events.each do |today_event| %>
-        <h2><%= link_to today_event.title, today_event %></h2>
-        <p>
-          <%= time_tag(today_event.beginning, :format => '%H:%M') %>
-          ,<%= today_event.location %>
-        </p>
-
-        <small>
-          <% if current_user.try(:admin) %>
-            <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
-                        edit_event_path(today_event),
-                        :id => "edit_event_#{today_event.id}" %>
-            <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
-                        event_path(today_event),
-                        :method => :delete,
-                        :confirm => "Are you sure you wish to delete event '#{today_event.title}' ?",
-                        :id => "delete_event_#{today_event.id}" %>
-          <% end %>
-        </small>
-
-        <p><%= markdown(today_event.description) %></p>
+        <%= render :partial => 'event', :locals => { :event => today_event } %>
       <% end %>
     </div>
   <% end %>
@@ -30,52 +11,14 @@
   <% if @upcoming_events.count != 0 %>
     <h1><%= pluralize(@upcoming_events.count, "upcoming event") %></h1>
     <% @upcoming_events.each do |upcoming_event| %>
-      <h2><%= link_to upcoming_event.title, upcoming_event %></h2>
-      <p>
-        <%= time_tag(upcoming_event.beginning, :format => '%B %d, %Y') %>
-        ( <%= distance_of_time_in_words(Time.now, upcoming_event.beginning) %> from now )
-        @ <%= upcoming_event.location %>
-      </p>
-
-      <small>
-        <% if current_user.try(:admin) %>
-          <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
-                      edit_event_path(upcoming_event),
-                      :id => "edit_event_#{upcoming_event.id}" %>
-          <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
-                      event_path(upcoming_event),
-                      :method => :delete,
-                      :confirm => "Are you sure you wish to delete event '#{upcoming_event.title}' ?",
-                      :id => "delete_event_#{upcoming_event.id}" %>
-        <% end %>
-      </small>
-
-      <p><%= markdown(upcoming_event.description) %></p>
+      <%= render :partial => 'event', :locals => { :event => upcoming_event } %>
     <% end %>
   <% end %>
 
   <% if @past_events.count != 0 %>
     <h1>Past events</h1>
     <% @past_events.each do |past_event| %>
-      <h2><%= link_to past_event.title, past_event %></h2>
-      <p>
-        <%= time_tag(past_event.beginning, :format => '%B %d, %Y') %>
-        ( <%= distance_of_time_in_words(Time.now, past_event.beginning) %> ago )
-        @ <%= past_event.location %>
-      </p>
-      <small>
-        <% if current_user.try(:admin) %>
-          <%= link_to raw('<i style="color: #999;" class="icon-edit"></i>'),
-                      edit_event_path(past_event),
-                      :id => "edit_event_#{past_event.id}" %>
-          <%= link_to raw('<i style="color: #999;" class="icon-remove"></i>'),
-                      event_path(past_event),
-                      :method => :delete,
-                      :confirm => "Are you sure you wish to delete event '#{past_event.title}' ?",
-                      :id => "delete_event_#{past_event.id}" %>
-        <% end %>
-      </small>
-      <p><%= markdown(past_event.description) %></p>
+      <%= render :partial => 'event', :locals => { :event => past_event } %>
     <% end %>
   <% end %>
 

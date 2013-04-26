@@ -1,4 +1,5 @@
 <% content_for :mainbar do %>
+  <%= link_to raw("<i class='icon-arrow-left'></i> back to all events"), events_path %>
   <h1><%= @event.title %></h1>
   <p>
     <%= time_tag(@event.beginning, :format => '%B %d, %Y') %>
