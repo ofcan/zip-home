@@ -18,7 +18,7 @@
       <%= image_tag post.featured_image.url(:thumbnail) %>
     </div>
     <div class='span8'>
-      <p><%= markdown(truncate (post.body), length: 280, :separator => ' ') %></p>
+      <p><%= markdown(remove_images(truncate_by_paragraph(post.body))) %></p>
       <p class='text-right'><%= link_to raw('read more <i class="icon-circle-arrow-right"></i>'), post %></p>
     </div>
   </div>
