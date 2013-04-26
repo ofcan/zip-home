@@ -16,6 +16,7 @@ describe Event do
       event.should respond_to :beginning
       event.should respond_to :ending
       event.should respond_to :location
+      event.should respond_to :featured_image
     end
 
   end
@@ -39,6 +40,11 @@ describe Event do
 
     it 'doesnt create new event if location is nil' do
       event.location = nil
+      event.should_not be_valid
+    end
+
+    it 'doesnt create new event if featured_image is nil' do
+      event.featured_image = nil
       event.should_not be_valid
     end
 

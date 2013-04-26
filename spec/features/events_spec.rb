@@ -35,6 +35,7 @@ describe 'Events' do
       fill_in 'event_description', :with => valid_attributes[:description]
       fill_in 'event_beginning', :with => valid_attributes[:beginning]
       fill_in 'event_location', :with => valid_attributes[:location]
+      attach_file('event_featured_image', Rails.root.join('app', 'assets', 'images', 'events', 'event.jpg'))
       expect {
         click_button 'Create'
       }.to change(Event, :count).by(1)

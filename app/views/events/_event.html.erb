@@ -15,7 +15,12 @@
 </h2>
 
 <div class='row-fluid'>
-  <div class='text-center span4' style='color: #fff; background-color: #bbb; margin-bottom: 10px;'>
+  <div class='text-center span4' style='background-image: url(<%= event.featured_image.url(:thumbnail) %>);
+                                        color: #fff;
+                                        background-repeat: no-repeat;
+                                        background-position: center;
+                                        text-shadow: 0px 5px 24px #000, 1px 1px 2px #000;
+                                        margin-bottom: 10px;'>
     <p>
       <h2><%= event.beginning.strftime('%d/%m/%y') %></h2>
       <h4><i class='icon-map-marker'></i> <%= event.location %></h4>

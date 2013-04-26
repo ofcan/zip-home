@@ -36,6 +36,10 @@ FactoryGirl.define do
     sequence(:location) { |n| "event_location_#{n}" }
     sequence(:beginning) { |n| Time.now + n*60 } # n minutes
     sequence(:ending) { |n| Time.now + (n+60)*60 } # 60 minutes after beginning
+    # FeaturedImage attribute provided by Paperclip gem
+    featured_image_file_name { 'test_featured_image.png' }
+    featured_image_content_type { 'image/png' }
+    featured_image_file_size { 1024 }
   end
 
   factory :startup do

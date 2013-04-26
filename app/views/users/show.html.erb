@@ -1,9 +1,11 @@
+
 <div class='row' style='margin-top: 14px;'>
   <div class='text-center span4'>
     <%= image_tag(gravatar_picture(@user, 200), :class => 'img-circle') %>
     <h4><%= @user.role.humanize %></h4>
   </div>
   <div class='span8'>
+    <%= link_to raw("<i class='icon-arrow-left'></i> back to people"), users_path %>
     <h1><%= @user.username %></h1>
     <h2><%= @user.realname %></h2>
     <p><%= markdown(@user.bio) %></p>

@@ -36,9 +36,9 @@
 <div class='row'>
   <!-- 3 most recent posts -->
   <div class='span8'>
-    <h3>Recent blog posts:</h3>
+    <h1>News <i class='icon-globe'></i></h1>
     <% Post.last(3).reverse.each do |post| %>
-        <%= render :partial => '/posts/post', :locals => { :post => post } %>
+      <%= render :partial => 'posts/post', :locals => { :post => post } %>
     <% end %>
   </div>
   <!-- 3 upcoming events -->

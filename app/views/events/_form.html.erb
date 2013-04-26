@@ -14,6 +14,13 @@
   <%= f.input :location,
               as: :string,
               placeholder: 'ZIP.Events' %>
+
+  <%= f.input :featured_image, hint: 'ProTIP: provide landscape pictures (600x360) for best effect' do %>
+    <%= image_tag @event.featured_image.url(:standard), :class => 'img-polaroid', :style => 'margin-bottom: 8px;' %>
+    <br/>
+    <%= f.file_field :featured_image %>
+  <% end %>
+
   <%= f.input :description,
               as: :text,
               placeholder: "A tiny description to get people excited...",

@@ -20,6 +20,8 @@
     <% end %>
   </small>
 
+  <%= image_tag @event.featured_image.url(:large) %>
+
   <%= markdown(@event.description) %>
 <% end %>
 
