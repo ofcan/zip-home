@@ -1,5 +1,6 @@
 <%= content_for :mainbar do %>
 
+  <%= link_to raw("<i class='icon-arrow-left'></i> back to all posts"), posts_path %>
   <h1><%= @post.title %></h1>
   <small>
     by <%= @post.user.username %> on <%= time_tag(@post.created_at, :format => '%B %d, %Y') %>
@@ -14,6 +15,10 @@
                   :id => "delete_post_#{@post.id}" %>
     <% end %>
   </small>
+
+  <p>
+    <%= image_tag @post.featured_image.url(:large) %>
+  </p>
 
   <p><%= markdown(@post.body) %></p>
 

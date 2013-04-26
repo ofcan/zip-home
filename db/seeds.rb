@@ -79,7 +79,7 @@ post_1.user = user_1
 post_1.save
 
 post_2 = Post.new
-post_2.featured_image = File.open(Rails.root.join('app', 'assets', 'images', 'posts', 'microryza.png'))
+post_2.featured_image = File.open(Rails.root.join('app', 'assets', 'images', 'posts', 'microryza.jpg'))
 post_2.title = 'ZIP DrinkUp with the Startup Sauna crew @ The Movie Pub'
 post_2.body = "
 I have been trying to find the workflow common denominator derived from various projects I've done lately. Despite being scaterred across different fields (writing, design, programming, architecture) I've noticed very similar patterns in all of them. Some things always worked, and some always didn't.  Here's what I found out.
@@ -145,7 +145,7 @@ post_3.save
 
 post_4 = Post.new
 post_4.title = 'La transizzia'
-post_4.featured_image = File.open(Rails.root.join('app', 'assets', 'images', 'posts', 'microryza.png'))
+post_4.featured_image = File.open(Rails.root.join('app', 'assets', 'images', 'posts', 'microryza.jpg'))
 post_4.body = "
 10 weeks ago I was just your typical cookie-cutter architecture student; 11 exams behind bachelors; having nothing tangible to show for all the hard work I've done in the past few months. Not a fun place to be...
 

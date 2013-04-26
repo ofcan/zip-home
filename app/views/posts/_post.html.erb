@@ -1,6 +1,5 @@
 <div class='post'>
-  <h1><%= link_to post.title, post, :id => "post_#{post.id}" %></h1>
-
+  <h2><%= link_to post.title, post, :id => "post_#{post.id}" %></h2>
   <small>
     by <%= post.user.username %> on <%= time_tag(post.created_at, :format => '%B %d, %Y') %>
     <% if current_user.try(:admin) %>
@@ -14,9 +13,13 @@
                   :id => "delete_post_#{post.id}" %>
     <% end %>
   </small>
-
-  <p><%= markdown(truncate (post.body), length: 800, separator: ' ') %></p>
-  <p><%= link_to raw("<i class='icon-angle-right'></i> Read more..."),
-                 post,
-                 :class => 'btn btn-warning' %></p>
+  <div class='row-fluid'>
+    <div class='span4'>
+      <%= image_tag post.featured_image.url(:thumbnail) %>
+    </div>
+    <div class='span8'>
+      <p><%= markdown(truncate (post.body), length: 280, :separator => ' ') %></p>
+      <p class='text-right'><%= link_to raw('read more <i class="icon-circle-arrow-right"></i>'), post %></p>
+    </div>
+  </div>
 </div>
