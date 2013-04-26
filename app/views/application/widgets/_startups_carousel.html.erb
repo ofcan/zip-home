@@ -5,12 +5,12 @@
     <div class="carousel-inner">
       <div class="active item" >
         <!-- 1st startup that is shown is random -->
-        <%= image_tag Startup.last.logo.url(:standard) %>
+        <%= link_to image_tag(Startup.last.logo.url(:standard)), Startup.last %>
       </div>
       <% Startup.all.shuffle.each do |startup| %>
         <!-- rest are shuffled randomly and displayed -->
         <div class="item">
-          <%= image_tag startup.logo.url(:standard) %>
+          <%= link_to image_tag(startup.logo.url(:standard)), startup %>
         </div>
       <% end %>
     </div>

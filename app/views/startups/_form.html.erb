@@ -6,7 +6,7 @@
   <%= f.input :name,
               input_html: { class: 'max_width' } %>
 
-  <%= f.input :logo, hint: 'ProTIP: provide square pictures for best effect' do %>
+  <%= f.input :logo, hint: 'ProTIP: provide square pictures (200x200) for best effect' do %>
     <%= image_tag @startup.logo.url(:standard), :class => 'img-polaroid', :style => 'margin-bottom: 8px;' %>
     <br/>
     <%= f.file_field :logo %>

@@ -9,7 +9,7 @@
   <% end %>
 
   <% if @upcoming_events.count != 0 %>
-    <h3 style='margin-bottom: -14px;'><%= pluralize(@upcoming_events.count, "upcoming event") %></h3>
+    <h3><%= pluralize(@upcoming_events.count, "upcoming event") %></h3>
     <% @upcoming_events.each do |upcoming_event| %>
       <%= render :partial => 'event', :locals => { :event => upcoming_event } %>
     <% end %>
@@ -29,6 +29,6 @@
               new_event_path,
               :class => 'btn btn-success',
               :id => 'new_event' if current_user.try(:admin) %>
-  <%= render 'application/widgets/recent_posts' %>
   <%= render 'application/widgets/startups_carousel' %>
+  <%= render 'application/widgets/recent_posts' %>
 <% end %>
