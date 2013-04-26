@@ -1,18 +1,22 @@
-<div id="startups_carousel" class="carousel slide well">
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item" >
-      <!-- 1st startup that is shown is the last one -->
-      <%= image_tag Startup.last.logo.url :standard %>
-    </div>
-    <% Startup.all.shuffle.each do |startup| %>
-      <!-- rest are shuffled randomly and displayed -->
-      <div class="item">
-        <%= image_tag startup.logo.url(:standard) %>
+<% unless Startup.all.count == 0 %>
+
+  <div id="startups_carousel" class="carousel slide well">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="active item" >
+        <!-- 1st startup that is shown is random -->
+        <%= image_tag Startup.last.logo.url(:standard) %>
       </div>
-    <% end %>
+      <% Startup.all.shuffle.each do |startup| %>
+        <!-- rest are shuffled randomly and displayed -->
+        <div class="item">
+          <%= image_tag startup.logo.url(:standard) %>
+        </div>
+      <% end %>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#startups_carousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#startups_carousel" data-slide="next">&rsaquo;</a>
   </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#startups_carousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#startups_carousel" data-slide="next">&rsaquo;</a>
-</div>
+
+<% end %>
