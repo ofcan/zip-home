@@ -29,6 +29,7 @@
               new_event_path,
               :class => 'btn btn-success',
               :id => 'new_event' if current_user.try(:admin) %>
-  <%= render 'application/widgets/startups_carousel' %>
   <%= render 'application/widgets/recent_posts' %>
+  <%= render 'application/widgets/social_media' %>
+  <%= render 'application/widgets/startups_carousel' %>
 <% end %>

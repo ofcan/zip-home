@@ -9,8 +9,8 @@
               :id => 'new_post',
               :class => 'btn btn-success' if current_user.try(:admin) %>
 
-  <%= render 'application/widgets/startups_carousel' %>
   <%= render 'application/widgets/events' %>
-  <%= render 'application/widgets/admins' %>
+  <%= render 'application/widgets/social_media' %>
+  <%= render 'application/widgets/startups_carousel' %>
 
 <% end %>
