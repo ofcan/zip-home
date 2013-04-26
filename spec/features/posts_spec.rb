@@ -47,6 +47,7 @@ describe "Posts" do
       visit new_post_path
       fill_in 'post_title', :with => valid_attributes[:title]
       fill_in 'post_body', :with => valid_attributes[:body]
+      attach_file('post_featured_image', Rails.root.join('app', 'assets', 'images', 'startups', 'mashme_logo.png'))
       expect {
         click_button 'Create'
       }.to change(Post, :count).by(1)

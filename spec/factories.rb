@@ -24,6 +24,10 @@ FactoryGirl.define do
     user
     sequence(:title) { |n| "post_title_#{n}" }
     sequence(:body) { |n| "post_body_#{n}" }
+    # FeaturedImage attribute provided by Paperclip gem
+    featured_image_file_name { 'test_featured_image.png' }
+    featured_image_content_type { 'image/png' }
+    featured_image_file_size { 1024 }
   end
 
   factory :event do

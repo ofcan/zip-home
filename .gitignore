@@ -15,3 +15,6 @@
 *~
 *.swp
 *.swo
+
+# Ignore pictures wich get created with rspec and paperclip
+/public/system/

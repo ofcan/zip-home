@@ -3,6 +3,13 @@
   <%= f.input :title,
               placeholder: "SEO uber optimised title",
               input_html: { class: 'max_width' } %>
+
+  <%= f.input :featured_image, hint: 'ProTIP: provide landscape pictures for best effect' do %>
+    <%= image_tag @post.featured_image.url(:standard), :class => 'img-polaroid', :style => 'margin-bottom: 8px;' %>
+    <br/>
+    <%= f.file_field :featured_image %>
+  <% end %>
+
   <%= f.input :body,
               as: :text,
               placeholder: "Once upon a time...",

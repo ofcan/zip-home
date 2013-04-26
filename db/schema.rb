@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424184826) do
+ActiveRecord::Schema.define(:version => 20130426100507) do
 
   create_table "batch_startup_joins", :force => true do |t|
     t.integer  "batch_id"
@@ -38,10 +38,14 @@ ActiveRecord::Schema.define(:version => 20130424184826) do
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",      :null => false
-    t.text     "body",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "title",                       :null => false
+    t.text     "body",                        :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "featured_image_file_name"
+    t.string   "featured_image_content_type"
+    t.integer  "featured_image_file_size"
+    t.datetime "featured_image_updated_at"
   end
 
   create_table "startups", :force => true do |t|
