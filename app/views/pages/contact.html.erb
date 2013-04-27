@@ -1,43 +1,74 @@
-<!-- social media -->
-<div class='row' style='border-bottom: 1px #ddd solid;'>
-  <div class='span3'>
-    <h3><i class='icon-facebook icon-4x'></i></h3>
-    <h3><%= link_to 'facebook', 'https://www.facebook.com/ZIPZg' %></h3>
-  </div>
-  <div class='span3'>
-    <h3><i class='icon-twitter icon-4x'></i></h3>
-    <h3><%= link_to 'twitter', 'https://twitter.com/zipzg' %></h3>
-  </div>
-  <div class='span3'>
-    <h3><i class='icon-linkedin icon-4x'></i></h3>
-    <h3><%= link_to 'linked in', 'http://www.linkedin.com/company/zip-incubator' %></h3>
-  </div>
-  <div class='span3'>
-    <h3><i class='icon-google-plus icon-4x'></i></h3>
-    <h3><%= link_to 'google plus', 'https://plus.google.com/106468077941615064478/posts' %></h3>
+<!-- HERO TEXT -->
+<h1 style='text-align: center; margin-bottom: 30px;'>We're at 3 locations:</h1>
+
+<!-- SUBHERO ICONS -->
+<div class='schematic_icons'>
+  <div class='row'>
+    <div class='span4'>
+      <div class='icon_background'>
+        <h2><i class='icon-cogs icon-4x'></i></h2>
+      </div>
+      <h3 style='margin-bottom: 0px;'>ZIP.Factory</h3>
+      <p>Daily hustle and coworking.</p>
+    </div>
+
+    <div class='span4'>
+      <div class='icon_background'>
+        <h2><i class='icon-globe icon-4x' style='color: #6cc0e5'></i></h2>
+      </div>
+      <h3 style='margin-bottom: 0px;'>ZIP.Events</h3>
+      <p>Where most of our events are.</p>
+    </div>
+
+    <div class='span4'>
+      <div class='icon_background'>
+        <h2><i class='icon-desktop icon-4x' style='color: #f58327'></i></h2>
+      </div>
+      <h3 style='margin-bottom: 0px;'>Online</h3>
+      <p>Social media or send us an email.</p>
+    </div>
   </div>
 </div>
 
-<!-- locations -->
-<div class='row'>
+<hr/>
 
-  <div class='span6'>
-    <h1>ZIP.Factory</h1>
-    <p>Remetinečka cesta 7, Zagreb</p>
-    <%= image_tag asset_path 'zip_factory.jpg' %>
-    <p>ZIP.Factory is a venue where our startups work on a daily (and nightly :) basis.</p>
+<h1>ZIP.Factory</h1>
+<p><i class='icon-map-marker'></i> Remetinečka cesta 7, Zagreb</p>
+
+<div class='row'>
+  <div class='span5'>
+    <p><%= image_tag asset_path 'zip_factory.jpg' %></p>
+    <p>ZIP.Factory is a venue where our startups work on a daily (and nightly :) basis. Feel free to drop by.</p>
     <p>Here parking is plentiful and we’re on the third floor of the “PRIMA namještaj” warehouse (watch for the blue glass entrance).</p>
+  </div>
+  <div class='span6'>
     <%= render 'application/maps/factory' %>
   </div>
+</div>
 
-  <div class='span6'>
-    <h1>ZIP.Events</h1>
-    <p>Ulica kralja Zvonimira 8, Zagreb</p>
-    <%= image_tag asset_path 'zip_events.jpg' %>
+<hr/>
+
+<h1>ZIP.Events</h1>
+<p><i class='icon-map-marker'></i> Ulica kralja Zvonimira 8, Zagreb</p>
+<div class='row'>
+  <div class='span5'>
+    <p><%= image_tag asset_path 'zip_events.jpg' %></p>
     <p>ZIP.Events venue will hold all sorts of open gatherings and lectures for great number of people, organized by ZIP itself or some of the many associations and organizations we collaborate with.</p>
     <p>If you’re coming with car, beware you’ll have to find a spot in some of the nearby streets or public garages (paid), but if you’re coming with a bike, you can enter the building and you’ll find a place to park it inside (just don’t forget to lock it!).</p>
+  </div>
+  <div class='span6'>
     <%= render 'application/maps/events' %>
   </div>
+</div>
 
+<hr/>
 
+<h1>Online</h1>
+<div class='row'>
+  <div class='span8'>
+    <p>Send us a message through this simple form</p>
+  </div>
+  <div class='span4'>
+    <%= render 'application/widgets/social_media' %>
+  </div>
 </div>
