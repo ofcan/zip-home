@@ -17,6 +17,7 @@ describe Event do
       event.should respond_to :ending
       event.should respond_to :location
       event.should respond_to :featured_image
+      event.should respond_to :comments
     end
 
   end

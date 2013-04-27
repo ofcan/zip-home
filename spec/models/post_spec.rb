@@ -13,6 +13,7 @@ describe Post do
     post.should respond_to :title
     post.should respond_to :body
     post.should respond_to :featured_image
+    post.should respond_to :comments
   end
 
   it 'doesnt create new post if user is nil' do

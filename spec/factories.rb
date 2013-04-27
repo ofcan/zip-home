@@ -66,4 +66,15 @@ FactoryGirl.define do
     startup
   end
 
+  factory :comment do
+    user
+    body 'Generic humorous comment.'
+    factory :post_comment do
+      association :commentable, factory: :post
+    end
+    factory :event_comment do
+      association :commentable, factory: :event
+    end
+  end
+
 end

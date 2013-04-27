@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  
+  # RELATIONSHIPS
+  has_many :comments, :as => :commentable
 
   # VALIDATIONS
   validates_presence_of :title,

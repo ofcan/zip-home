@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   
   # RELATIONSHIPS
   belongs_to :user
+  has_many :comments, :as => :commentable
 
   # VALIDATIONS
   validates :user, :presence => true

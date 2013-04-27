@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426203000) do
+ActiveRecord::Schema.define(:version => 20130427135222) do
 
   create_table "batch_startup_joins", :force => true do |t|
     t.integer  "batch_id"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20130426203000) do
     t.string   "title",      :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.text     "body",             :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "events", :force => true do |t|
