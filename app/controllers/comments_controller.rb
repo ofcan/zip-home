@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :find_commentable, :only => :create
-#  before_filter :find_comment, :only => :destroy
-#  before_filter :find_commentable_from_post, :only => :destroy
-#  before_filter :check_locationship_admin_or_creator, :only => :destroy
+  before_filter :find_commentable
+  before_filter :find_comment, :only => :destroy
+  before_filter :authorize_admin_or_creator, :only => :destroy
 
   def create
     @comment = @commentable.comments.build(params[:comment])
@@ -16,10 +15,10 @@ class CommentsController < ApplicationController
     end
   end
 
-#  def destroy
-#  @comment.destroy
-#  redirect_to @commentable, :notice => 'Comment destroyed'
-#  end
+  def destroy
+    @comment.destroy
+    redirect_to @commentable, :notice => 'Comment destroyed.'
+  end
 
   private
 
@@ -33,12 +32,15 @@ class CommentsController < ApplicationController
     raise ActiveRecord:NoRecord.new("Couldn't find commentable.")
   end
 
-#  def find_commentable_from_post
-#    @commentable = @comment.commentable
-#  end
-#
-#  def find_comment
-#    @comment = Comment.find(params[:id])
-#  end
+  def find_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  def authorize_admin_or_creator
+    unless current_user.try(:admin) || @comment.user == current_user
+      redirect_to @commentable
+      flash[:alert] = "You can't do that."
+    end
+  end
   
 end
