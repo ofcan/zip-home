@@ -12,6 +12,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    @comments = @event.comments.order("created_at asc")
+    @commentable = @event
+    @comment = @commentable.comments.build
   end
 
   def new

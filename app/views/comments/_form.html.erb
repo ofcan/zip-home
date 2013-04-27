@@ -1,0 +1,20 @@
+<%= form_for [@commentable, @comment] do |f| %>
+
+  <% if current_user.nil? %>
+    <%= f.text_area :body, :class => 'max_width',
+                           :rows => '4',
+                           :style => 'margin-top: 12px; margin-bottom: 0px;',
+                           :placeholder => "Sign up or sign to be able to comment and do a whole bunch of other cool stuff.",
+                           :disabled => true %>
+    <%= f.submit :class => 'btn btn-primary disabled' %>
+  <% else %>
+    <%= f.text_area :body, :class => 'max_width',
+                           :rows => '4',
+                           :style => 'margin-top: 12px; margin-bottom: 0px;',
+                           :placeholder => "What's on your mind?" %>
+    <%= f.submit :class => 'btn btn-primary' %>
+  <% end %>
+
+  <%= render 'markdown_cheatsheet' %>
+
+<% end %>

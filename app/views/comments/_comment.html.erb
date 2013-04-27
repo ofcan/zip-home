@@ -1,0 +1,22 @@
+<div class='row-fluid' style='margin: 14px;'>
+  <div class='span2'>
+    <%= link_to image_tag(gravatar_picture(comment.user, 40), :class => "img-circle"), comment.user %>
+  </div>
+
+  <div class='span10' style='margin-left: -28px;'>
+    <div style='margin-bottom: -10px;' class='markdown_rendered_text'><%= markdown(comment.body) %></div>
+
+    <small>
+      <%= link_to comment.user.username, comment.user %> <%= time_ago_in_words(comment.updated_at) %> ago
+
+      <% if current_user.try(:admin) || current_user == comment.user %>
+        <%= link_to raw('<i class="icon-remove crud_icon"></i>'),
+                    [comment.commentable, comment],
+                    :method => :delete,
+                    :confirm => 'Are you sure you wish to delete this comment?',
+                    :id => "delete_comment_#{comment.id}" %>
+      <% end %>
+    </small>
+
+  </div>
+</div>
