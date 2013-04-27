@@ -47,26 +47,9 @@ small {
 }
 
 /* ICONS */
-.schematic_icons .row {
-  margin-top: 40px;
-}
-
 .crud_icon {
   color: #999;
   margin-left: 4px;
-}
-
-.schematic_icons .span3 {
-  text-align: center;
-}
-
-.schematic_icons .icon_background {
-   padding: 15px;
-   color: #9bc957;
-   background-color: #444;
-   border-radius: 50%;
-   width: 120px;
-   margin: 0px auto;
 }
 
 /* FORMS */

@@ -1,3 +1,4 @@
+<!-- CAROUSEL -->
 <%= content_for :header do %>
   <div class="carousel_background">
     <div class='container'>
@@ -34,14 +35,14 @@
 <% end %>
 
 <div class='row'>
-  <!-- 3 most recent posts -->
+  <!-- MAINBAR -->
   <div class='span8'>
     <h1>News <i class='icon-globe'></i></h1>
     <% Post.last(3).reverse.each do |post| %>
       <%= render :partial => 'posts/post', :locals => { :post => post } %>
     <% end %>
   </div>
-  <!-- 3 upcoming events -->
+  <!-- SIDEBAR -->
   <div class='span4'>
     <%= render 'application/widgets/events' %>
     <%= render 'application/widgets/startups_carousel' %>
@@ -49,33 +50,17 @@
   </div>
 </div>
 
-<!-- Hero text -->
+<!-- HERO TEXT -->
 <div style='margin: 40px auto;
             padding-top: 40px;
             border-top: 1px solid #ddd;'>
   <h1 style='text-align: center;'>ZIP is a place to be for european startups!</h1>
   <p style='width: 700px; margin: 0px auto; text-align: center;' class='lead'>
-    Zagrebački Inkubator Poduzetništva (Zagreb Entrepreneurship Incubator) is a non-profit organisaion with a mission to help entrepreneurs from the region of Southeastern Europe build their companies. We provide...
+    Zagrebački Inkubator Poduzetništva (Zagreb Entrepreneurship Incubator) is a non-profit organisaion with a mission to help entrepreneurs from the region of Southeastern Europe build their companies. We value...
   </p>
 </div>
 
-<div class="row">
-  <div class="span4">
-    <%= image_tag asset_path 'community.jpg' %>
-    <p style='padding-top: 8px;'>
-      One of the most important things in every organisation is community so we invest a lot of our time strenghtening our community. We expand it via our <%= link_to 'mentor network', users_path %> that stretches all the way across the globe and organise events and hangouts so you guys are never bored!
-    </p>
-  </div>
-  <div class="span4">
-    <%= image_tag asset_path 'events.jpg' %>
-    <p style='padding-top: 8px;'>Our calendar is filled with interesting events, hangouts and lectures. We have organised a bunch of conferences and very active in the region. Check out our <%= link_to 'blog', posts_path %> for impressions from previous events as well as for the upcoming ones.</p>
-  </div>
-  <div class="span4">
-    <%= image_tag asset_path 'culture.jpg' %>
-    <p style='padding-top: 8px;'>We have fun, practice openness and encourage sharing in ways that create the ultimate environment for learning, success, and awesomeness. We change the world and have lots of fun doing it!</p>
-  </div>
-</div>
-
+<!-- SUBHERO ICONS -->
 <div class='schematic_icons'>
   <div class='row'>
     <div class='span4'>
@@ -83,15 +68,15 @@
         <h2><i class='icon-lightbulb icon-4x'></i></h2>
       </div>
       <h2>ideas</h2>
-      <p>Ideas change the world.</p>
+      <p>Ideas change the world. They challenge status quo and help the world move forward. Dare to fail. Fail to succeed.</p>
     </div>
 
     <div class='span4'>
       <div class='icon_background'>
-        <h2><i class='icon-beaker icon-4x' style='color: #6cc0e5'></i></h2>
+        <h2><i class='icon-file-alt icon-4x' style='color: #6cc0e5'></i></h2>
       </div>
-      <h2>experimentation</h2>
-      <p>Dare to fail. Fail to succeed.</p>
+      <h2>projects</h2>
+      <p>Ideas would be nothing without realisation. We deliver by helping projects grow, mature and execute using our experience and resources.</p>
     </div>
 
     <div class='span4'>
@@ -99,7 +84,34 @@
         <h2><i class='icon-group icon-4x' style='color: #f58327'></i></h2>
       </div>
       <h2>community</h2>
-      <p>We work hard and play hard. Join us.</p>
+      <p>Projects and ideas are nothing without amazing people and communities who make them become reality. We know that and try to create the most awesome community out there. Join us.</p>
     </div>
   </div>
 </div>
+
+<!-- SUBHERO PICTURES -->
+<div class="row">
+  <div class="span4">
+    <div style='background-image: url(<%= asset_path 'community.jpg' %>);' class='subhero_picture'>
+      <h1>ADVICE</h1>
+    </div>
+    <p style='padding-top: 8px;'>
+      One of the most important things in every organisation is community so we invest a lot of our time strenghtening our community. We expand it via our <%= link_to 'mentor network', users_path %> that stretches all the way across the globe and organise events and hangouts so you guys are never bored!
+    </p>
+  </div>
+  <div class="span4">
+    <div style='background-image: url(<%= asset_path 'events.jpg' %>);' class='subhero_picture'>
+      <h1>EVENTS</h1>
+    </div>
+    <p style='padding-top: 8px;'>Our calendar is filled with interesting events, hangouts and lectures. We have organised a bunch of conferences and very active in the region. Check out our <%= link_to 'blog', posts_path %> for impressions from previous events as well as for the upcoming ones.</p>
+  </div>
+  <div class="span4">
+    <div style='background-image: url(<%= asset_path 'culture.jpg' %>);' class='subhero_picture'>
+      <h1>CULTURE</h1>
+    </div>
+    <p style='padding-top: 8px;'>We have fun, practice openness and encourage sharing in ways that create the ultimate environment for learning, success, and awesomeness. We change the world and have lots of fun doing it!</p>
+  </div>
+</div>
+
+<%= render :partial => 'application/widgets/testimonials' %>
+<%= render :partial => 'application/partners' %>

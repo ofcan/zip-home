@@ -1,3 +1,25 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ICONS */
+.schematic_icons {
+  text-align: center;
+}
+
+.schematic_icons .span3 .icon_background {
+  width: 120px;
+}
+
+.schematic_icons .span4 .icon_background {
+  width: 150px;
+}
+
+.schematic_icons .icon_background {
+   padding: 15px;
+   color: #9bc957;
+   background-color: #444;
+   border-radius: 50%;
+   margin: 0px auto;
+}
+

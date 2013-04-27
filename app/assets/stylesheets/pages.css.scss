@@ -2,24 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table {
-  margin: 30px 0;
+/* SUBHERO PICTURES */
+.subhero_picture {
+  color: #ededed;
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-shadow: 0px 5px 24px #000, 1px 1px 2px #000;
+  height: 200px;
 }
 
-table caption {
-  margin-bottom: 20px;
+.subhero_picture h1 {
+  padding-top: 75px;
+  text-decoration: underline overline;
+  text-align: center;
 }
 
+/* CAROUSEL */
 .carousel_background {
   margin-top: -20px;
   background-color: #151617;
-  height: 340px;
+  height: 320px;
   border-bottom: 4px solid #bbb;
 }
 
 .hero_carousel {
   padding: 20px;
-  height: 300px;
+  height: 280px;
   background-size: 100%;
   background-repeat: no-repeat;
   display: compact;
@@ -34,24 +43,19 @@ table caption {
   margin-top: 15px;
 }
 
-.hero_carousel h5 {
-  margin-left: 70px;
-}
+.hero_carousel h5 { margin-left: 70px; }
 
-.partner_badge {
-  height: 150px;
-}
-
+/* BADGES */
+.partner_badge { height: 150px; }
 .partner_badge img {
   margin: 20px 0;
   max-height: 100px;
 }
 
 /* WIDGETS */
-#testimonials {
-  margin: 80px 0px;
-}
+#testimonials { margin: 80px 0px; }
+#testimonials img { max-height: 180px; }
 
-#testimonials img {
-  max-height: 180px;
-}
+/* TABLES */
+table { margin: 30px 0; }
+table caption { margin-bottom: 20px; }
