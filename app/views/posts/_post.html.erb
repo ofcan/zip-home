@@ -19,7 +19,20 @@
     </div>
     <div class='span8'>
       <%= markdown(remove_images(truncate_by_paragraph(post.body))) %>
-      <p class='text-right'><%= link_to raw('read more <i class="icon-circle-arrow-right"></i>'), post %></p>
+      <div class='row-fluid'>
+        <div class='span9'>
+          <% if post.comments.count == 0 %>
+            <%= link_to raw("<i class='icon-comment'></i> Comment!"), post_path(post, :anchor => 'comments') %>
+          <% else %>
+            <%= link_to raw("<i class='icon-comment'></i> " + pluralize(post.comments.count, 'comment')), post_path(post, :anchor => 'comments') %>
+          <% end %>
+        </div>
+
+        <div class='span3'>
+          <%= link_to raw('read more <i class="icon-circle-arrow-right"></i>'), post %>
+        </div>
+      </div>
+
     </div>
   </div>
   <hr/>
