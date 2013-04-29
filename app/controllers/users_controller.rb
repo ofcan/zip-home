@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   
+  before_filter :authenticate_user!, :only => :update
   before_filter :find_user, :except => :index
+  before_filter :assert_admin, :only => :update
 
   def index
     @founders = User.where(:role => 'founder').all
@@ -14,6 +16,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    # Devise doesn't allow updating uses without providing current password
+    # This if statement bypasses that issues to enable admins to update other
+    # users
     if params[:user][:password].blank?
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
