@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments.order("created_at asc")
+    @comments = @post.comments.order("created_at desc")
     @commentable = @post
     @comment = @commentable.comments.build
   end

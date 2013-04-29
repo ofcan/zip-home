@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @comments = @event.comments.order("created_at asc")
+    @comments = @event.comments.order("created_at desc")
     @commentable = @event
     @comment = @commentable.comments.build
   end

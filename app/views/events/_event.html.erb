@@ -30,6 +30,18 @@
 
   <div class='span8'>
     <%= markdown(truncate(remove_images(truncate_by_paragraph(event.description)), :length => 230)) %>
-    <p class='text-right'><%= link_to raw('read more <i class="icon-circle-arrow-right"></i>'), event %></p>
+    <div class='row-fluid'>
+      <div class='span9'>
+        <% if event.comments.count == 0 %>
+          <%= link_to raw("<i class='icon-comment'></i> Comment!"), event_path(event, :anchor => 'comments') %>
+        <% else %>
+          <%= link_to raw("<i class='icon-comment'></i> " + pluralize(event.comments.count, 'comment')), event_path(event, :anchor => 'comments') %>
+        <% end %>
+      </div>
+
+      <div class='span3'>
+        <%= link_to raw('read more <i class="icon-circle-arrow-right"></i>'), event %>
+      </div>
+    </div>
   </div>
 </div>
