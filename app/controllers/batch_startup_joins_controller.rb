@@ -9,6 +9,7 @@ class BatchStartupJoinsController < ApplicationController
     @batch_startup_join = @batch.batch_startup_joins.build
     @batch_startup_join.batch = @batch
     @batch_startup_join.startup = @startup
+
     if BatchStartupJoin.find_by_batch_id_and_startup_id(@batch, @startup) == nil && @batch_startup_join.save
       redirect_to edit_batch_path(@batch), notice: 'Startup added.'
     else
