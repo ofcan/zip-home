@@ -74,4 +74,14 @@ describe "UserFlows" do
     current_path.should == user_path(zip_team_member)
   end
 
+  it 'should change user role from user show' do
+    sign_in_as!(founder)
+    visit user_path(user)
+    select 'Founder', :from => 'user_role'
+    click_button 'Update'
+
+    user.reload
+    user.role.should == 'founder'
+  end
+
 end

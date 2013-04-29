@@ -1,8 +1,15 @@
-
 <div class='row' style='margin-top: 14px;'>
   <div class='text-center span4'>
     <%= image_tag(gravatar_picture(@user, 200), :class => 'img-circle') %>
     <h4><%= @user.role.humanize %></h4>
+
+    <% if current_user.try(:admin) %>
+      <%= form_for @user do |f| %>
+        <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
+
   </div>
   <div class='span8'>
     <%= link_to raw("<i class='icon-arrow-left'></i> back to people"), users_path %>
