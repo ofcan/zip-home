@@ -2,7 +2,8 @@
   
   <div class='row'>
 
-    <div class='span6'>
+    <div class='span5'>
+      <!-- APPLY INSTRUCTIONS -->
       <h1 style='margin-bottom: 16px;'>Apply to ZIP!</h1>
       <%= content_tag(:p,
                       raw("1. Create your #{link_to 'user account', new_user_registration_path} / #{link_to 'Log in', new_user_session_path}"),
@@ -12,6 +13,7 @@
                       :style => ("text-decoration: line-through" if current_user && current_user.startups.count != 0)) %>
       <p>3. Submit application</p>
 
+      <!-- PROGRESS BARS -->
       <div class="progress progress-warning progress-striped active">
         <% if current_user == nil %>
           <div class="bar" style="width: 2%"></div>
@@ -28,9 +30,22 @@
 
     </div>
 
-    <div class='span4'>
-      <p><i class='icon-question-sign'></i> what do I get?</p>
+    <!-- EMPTY SPAN FOR WHITESPACE IN THE MIDDLE -->
+    <div class='span1'>
     </div>
-  </div
+
+    <!-- FAQ -->
+    <div class='span4'>
+      <h3><i class='icon-question-sign'></i> FAQ</h3>
+      <ul>
+        <li>Why should I apply?</li>
+        <li>What do I get by applying?</li>
+        <li>What criteria are candidates judged by?</li>
+        <li>Who decides?</li>
+        <li>Who can apply?</li>
+      </ul>
+    </div>
+
+  </div>
   
 </div>
