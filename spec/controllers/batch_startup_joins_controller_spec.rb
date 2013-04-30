@@ -51,6 +51,16 @@ describe BatchStartupJoinsController do
       }.to_not change(BatchStartupJoin, :count)
     end
 
+    it 'founder should not be able to create 2 identical batch_startup_joins' do
+      sign_in(founder)
+      expect {
+        post :create, :batch_id => batch,
+                      :batch_startup_join => { :startup_id => startup }
+        post :create, :batch_id => batch,
+                      :batch_startup_join => { :startup_id => startup }
+      }.to change(BatchStartupJoin, :count).by(1)
+    end
+
   end
 
 end

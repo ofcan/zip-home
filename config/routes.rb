@@ -9,7 +9,7 @@ ZipHome::Application.routes.draw do
   match 'contact', :to => 'pages#contact'
   match 'apply', :to => 'pages#apply'
 
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show, :update]
   resources :startups do
     resources :startupships, :only => [:index, :create, :destroy]
   end

@@ -1,1 +1,54 @@
-<h1>Apply to ZIP!</h1>
+<div class='hero-unit'>
+  
+  <h1 style='margin-bottom: 20px;'>Applications for <%= Batch.last.title %> are open - apply now!</h1>
+  <div class='row'>
+
+    <div class='span5'>
+      <%= image_tag asset_path 'zip_logo.png' %>
+    </div>
+
+    <!-- EMPTY SPAN FOR WHITESPACE IN THE MIDDLE -->
+    <div class='span1'>
+    </div>
+
+    <div class='span5'>
+      <!-- APPLY INSTRUCTIONS -->
+      <%= content_tag(:p,
+                      raw("1. Create your #{link_to 'user account', new_user_registration_path} / #{link_to 'Log in', new_user_session_path}"),
+                      :style => ("text-decoration: line-through" if current_user)) %>
+      <%= content_tag(:p,
+                      raw("2. Create a #{link_to 'startup you wish to apply with', new_startup_path}"),
+                      :style => ("text-decoration: line-through" if current_user && current_user.startups.count != 0)) %>
+      <p>3. Submit application</p>
+
+      <!-- PROGRESS BARS -->
+      <div class="progress progress-warning progress-striped active">
+        <% if current_user == nil %>
+          <div class="bar" style="width: 2%"></div>
+        <% end %>
+
+        <% if current_user %>
+          <% if current_user.startups.count == 0 %>
+            <div class="bar" style="width: 33%">1/3 complete</div>
+          <% else %>
+            <div class="bar" style="width: 66%">almost done!</div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+
+  
+</div>
+
+<!-- FAQ -->
+<h3><i class='icon-question-sign'></i> FAQ</h3>
+<ul>
+  <li>Why should I apply?</li>
+  <li>What do I get by applying?</li>
+  <li>What criteria are candidates judged by?</li>
+  <li>Who decides?</li>
+  <li>Who can apply?</li>
+</ul>

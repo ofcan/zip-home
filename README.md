@@ -2,6 +2,8 @@
 
 This is the home of [ZIP](http://zipzg.com) - the best startup incubator in the world! It is an open source project created by our awesome community! Check it out! :)
 
+[You can visit the latest development master branch live here.](http://zip.herokuapp.com/)
+
 ## Getting started
 
 This project is riding Ruby on Rails. To start contributing you should have installed:
